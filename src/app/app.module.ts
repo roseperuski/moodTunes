@@ -4,12 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import { SearchMusicComponent } from './search-music/search-music.component'
+import { SearchMusicComponent } from './search-music/search-music.component';
+import { NavComponent } from './nav/nav.component';
+import { ResultsComponent } from './results/results.component';
+import { PlaylistsComponent } from './playlists/playlists.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchMusicComponent
+    SearchMusicComponent,
+    NavComponent,
+    ResultsComponent,
+    PlaylistsComponent
   ],
   imports: [
     BrowserModule,
