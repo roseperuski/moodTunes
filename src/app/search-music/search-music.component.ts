@@ -11,6 +11,10 @@ export class SearchMusicComponent implements OnInit {
   constructor(public musicService: MusicService) { }
 
   ngOnInit(): void {
+    //this.musicService.getMusic();
+  }
+
+  fetchDataService(){
     this.musicService.getMusic();
   }
 

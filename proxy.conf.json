@@ -1,0 +1,3 @@
+{ "/api/*": {"target" : "https://musicovery.com/api/V6","secure": false,
+    "logLevel": "debug"
+  }}
