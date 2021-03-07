@@ -1,2 +1,15 @@
-<p>search-music works!</p>
-<button (click)="fetchDataService()">Fetch Data</button>
+<form role="search"> 
+    <label for="search-by">Search By: </label>
+    <select name="search-type" id="search-by">
+      <option value="">--Please choose an option--</option>
+      <option value="dog">Mood</option>
+      <option value="cat">Artist</option>
+      <option value="hamster">Song</option>
+    </select>
+    <label>Search terms: 
+        <input type="text" >
+    </label>
+    
+
+    <button type="submit" (click)="fetchDataService()">Search</button>
+  </form>
