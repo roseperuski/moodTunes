@@ -1,15 +1,19 @@
-<form role="search"> 
-    <label for="search-by">Search By: </label>
-    <select name="search-type" id="search-by">
-      <option value="">--Please choose an option--</option>
-      <option value="dog">Mood</option>
-      <option value="cat">Artist</option>
-      <option value="hamster">Song</option>
-    </select>
-    <label>Search terms: 
-        <input type="text" >
-    </label>
-    
+<div>
+  <form role="search">
+    <div class="select">
+      <h2 id="search-by">Search By:</h2>
+      <select name="search-type" aria-labelledby="search-by" required>
+        <option value=""></option>
+        <option value="mood">Mood</option>
+        <option value="artist">Artist</option>
+        <option value="song">Song</option>
+      </select>
+    </div>
 
-    <button type="submit" (click)="fetchDataService()">Search</button>
+    <label
+      >Search terms:
+      <input type="text" required />
+    </label>
   </form>
+  <button (click)="fetchDataService()">Search</button>
+</div>

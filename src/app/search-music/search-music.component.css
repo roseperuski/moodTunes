@@ -1,0 +1,45 @@
+h2 {
+    font-size: medium;
+}
+
+div{
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    align-items: center;
+    /* padding: 2rem; */
+    /* box-sizing: border-box; */
+}
+
+select{
+    /* display: inline; */
+    width: 65%;
+
+}
+
+button{
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .full-width-img {
+    margin: auto;
+    width: 90%;
+    }
+
+    button{
+        width: auto;
+        margin: 1rem;
+    }
+
+    select{
+        width: auto;
+    }
+    
+
+    div{
+        display: inline-flex;
+        margin: 2rem;
+       
+    }
+}
