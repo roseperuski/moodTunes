@@ -7,7 +7,7 @@ import { MusicService } from '../music.service';
   styleUrls: ['./search-music.component.css']
 })
 export class SearchMusicComponent implements OnInit {
-
+  selectedFilter: string ="";
   constructor(public musicService: MusicService) { }
 
   ngOnInit(): void {
@@ -17,5 +17,11 @@ export class SearchMusicComponent implements OnInit {
   fetchDataService(){
     this.musicService.getMusic();
   }
+
+  onOptionsSelected(event: any){
+    this.selectedFilter=event.target.value;
+    console.log(this.selectedFilter);
+  }
+  
 
 }
