@@ -13,7 +13,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const url = "https://musicovery.com/api/V6n";
+const url = "https://musicovery.com/api/V6";
 
 app.use(
   "/",

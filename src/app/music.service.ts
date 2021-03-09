@@ -33,6 +33,8 @@ export class MusicService {
   //apiKey = "";
   //url = "https://musicovery.com/api/V6";
   url = "http://localhost:8080/api/V6";
+  music: Music[]; 
+  musiclist: Music[] = [];
 
   constructor(private http: HttpClient) { }
   getMusic(){
