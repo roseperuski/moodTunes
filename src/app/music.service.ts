@@ -28,7 +28,7 @@ export class MusicService {
     //console.log(type);
     const requestUrl =
       //this.url + "/tag.php?&fct=search&type=mood"; // add whatever params you want from here: https://developers.themoviedb.org/3/discover/movie-discover
-      this.url+"?method=tag.gettoptracks&tag=sad&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
+      this.url+"?method=" + method + "&tag=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
       console.log('requestURL:',requestUrl);
     this.http.get(requestUrl).subscribe(
       (response: Response) => {

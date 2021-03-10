@@ -8,6 +8,7 @@ import { SearchMusicComponent } from './search-music/search-music.component';
 import { NavComponent } from './nav/nav.component';
 import { ResultsComponent } from './results/results.component';
 import { PlaylistsComponent } from './playlists/playlists.component'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PlaylistsComponent } from './playlists/playlists.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [],
