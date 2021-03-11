@@ -2,7 +2,7 @@
     track?:Track [];
     //name?: string;
     //track_mbid?: string;
-    attr:{
+    "@attr":{
       artist:string;
     };
     //artist_mbid: string;

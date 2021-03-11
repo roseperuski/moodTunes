@@ -4,7 +4,7 @@ import {Music} from './music'
 import {Track} from './track'
 
 interface Response {
-  results: Music[];
+  toptracks: Music;
   //page: number;
 }
 
@@ -27,7 +27,7 @@ export class MusicService {
   apiKey = "b88d365cdf804155ac40618e402f7ce5";
   //url = "http://localhost:8080/api/V6";
   url="http://ws.audioscrobbler.com/2.0/";
-  music: Music [] = [];
+  music: Music;
 
   constructor(private http: HttpClient) { }
   getMusic(method?: string, searchString?: string){
@@ -47,7 +47,7 @@ export class MusicService {
     this.http.get(requestUrl).subscribe(
       (response: Response) => {
         console.log(response);
-        this.music = response.results.toptracks;
+        this.music = response.toptracks;
       },
       (error) => {
         console.error(error);

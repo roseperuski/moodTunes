@@ -2,11 +2,11 @@
 <main>
 
   <h2>My Results</h2>
- 
-    <div class ="result-card" *ngFor="let music of musicService.music; let i= index;">  
+    <div class="artist">Artist Name: {{ musicService.music['@attr'].artist}}</div> 
+    <div class ="result-card" *ngFor="let music of musicService.music.track; let i= index;">  
 
-    <!-- <div class="artist">Artist Name: {{ music.artist }}</div> -->
-    <div class="song">Song: {{ music.toptracks.track[0].name }}</div> 
+   
+    <div class="song">Song: {{ music.name }}</div> 
 
     <img [src]="" alt="" />
 
