@@ -10,6 +10,7 @@ import { ResultsComponent } from './results/results.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [],
