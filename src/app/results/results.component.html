@@ -1,10 +1,21 @@
+<app-nav></app-nav>
 <main>
-  <h2>Your Results</h2>
+
+  <h2>My Results</h2>
+
   <div class="result-card">
-      <p>Artist Name</p>
-      <p>Song Name</p>
+
+    <div id="artist">Artist Name: {{ results.artist }}</div>
+    <div id="song">Song: {{ results.track }}</div>
+
     <img [src]="" alt="" />
+
     <button>Details</button>
     <button>Add to Playlist</button>
+    <!-- <button id="add_btn" (click)="addPlaylist()"><img src="https://img.icons8.com/officel/16/000000/like--v2.png"/></button> -->
+
   </div>
+
 </main>
+
+<a href="https://icons8.com/icon/lGwdk0g8m4H5/heart">Heart icon by Icons8</a>

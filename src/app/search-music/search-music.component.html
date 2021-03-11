@@ -1,3 +1,35 @@
+<<<<<<< HEAD
+<app-nav></app-nav>
+<main>
+  <div>
+
+    <form role="search">
+
+      <div class="select">
+ 
+        <h2 id="search-by">Search by:</h2>
+
+        <select name="search-type" aria-labelledby="search-by"  (change)="onOptionsSelected($event)" required>
+          <option value="tag.gettoptracks">Mood by Track</option>
+          <option value="tag.gettopartists">Mood by Artist</option>
+          <option value="artist.gettoptracks">Artist</option>
+          <option value="track.search">Track</option>
+        </select>
+
+      </div>
+
+      <label
+        >Search terms:
+        <input type="text" required />
+      </label>
+
+    </form>
+
+    <button type="submit" class="search-btn" (click)="fetchDataService()" routerLink="/results">Search</button>
+
+  </div>
+</main>
+=======
 <div>
   <form role="search">
     <div class="select">
@@ -18,3 +50,4 @@
   </form>
   <button (click)="fetchDataService()">Search</button>
 </div>
+>>>>>>> d018904682299d483deefed3b3bfab3e27784c36

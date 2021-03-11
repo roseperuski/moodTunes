@@ -1,8 +1,8 @@
- export interface Music{
+ export interface Music {
     track?: string;
     name?: string;
     track_mbid?: string;
-    artist?: string;
+    artist?: string[];
     artist_mbid: string;
     image?: string;
   //   id?:string;
@@ -18,3 +18,4 @@
   //  //name?:string;
    //tag_en:string;
    }
+   
