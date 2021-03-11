@@ -1,12 +1,12 @@
-<app-nav></app-nav>
+<!-- <app-nav></app-nav> -->
 <main>
 
   <h2>My Results</h2>
+ 
+    <div class ="result-card" *ngFor="let music of musicService.music; let i= index;">  
 
-  <div class="result-card">
-
-    <div id="artist">Artist Name: {{ results.artist }}</div>
-    <div id="song">Song: {{ results.track }}</div>
+    <!-- <div class="artist">Artist Name: {{ music.artist }}</div> -->
+    <div class="song">Song: {{ music.toptracks.track[0].name }}</div> 
 
     <img [src]="" alt="" />
 

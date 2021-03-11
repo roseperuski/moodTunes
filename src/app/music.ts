@@ -1,10 +1,12 @@
  export interface Music {
-    track?: string;
-    name?: string;
-    track_mbid?: string;
-    artist?: string[];
-    artist_mbid: string;
-    image?: string;
+    track?:Track [];
+    //name?: string;
+    //track_mbid?: string;
+    attr:{
+      artist:string;
+    };
+    //artist_mbid: string;
+    //image?: string;
   //   id?:string;
   //   title?:string;
   //   artist_display_name?:string;
@@ -18,4 +20,17 @@
   //  //name?:string;
    //tag_en:string;
    }
-   
+   export interface Track {
+    name: string;
+    url: string;
+    artist: string[];
+    image: string;
+  }
+  export interface Toptracks {
+    attr:{
+      artist:string;
+    };
+    // url: string;
+    // artist: string[];
+    // image: string;
+  } 
