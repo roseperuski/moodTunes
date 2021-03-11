@@ -25,11 +25,19 @@ export class MusicService {
 
   constructor(private http: HttpClient) { }
   getMusic(method?: string, searchString?: string){
-    //console.log(type);
-    const requestUrl =
+    let requestUrl;
+    if (method === "artist.gettoptracks"){
+      requestUrl = this.url +"?method="+ method +   "&artist=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
+    } else if (method === "track.search" ) {
+      requestUrl = this.url +"?method="+ method + "&track=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
+    } else {
+      requestUrl =
       //this.url + "/tag.php?&fct=search&type=mood"; // add whatever params you want from here: https://developers.themoviedb.org/3/discover/movie-discover
-      this.url+"?method=tag.gettoptracks&tag=sad&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
+      this.url+"?method=" + method + "&tag=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
       console.log('requestURL:',requestUrl);
+    }
+    //console.log(type);
+   
     this.http.get(requestUrl).subscribe(
       (response: Response) => {
         console.log(response);
