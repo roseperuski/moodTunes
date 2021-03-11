@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Music } from '../music';
+import { MusicService } from '../music.service';
 
 @Component({
   selector: 'app-results',
@@ -6,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
+  @Input() public results: Music;
 
-  constructor() { }
+  constructor(public musicService: MusicService) { }
 
   ngOnInit(): void {
   }
