@@ -4,7 +4,8 @@ import {Music} from './music'
 import {Track} from './track'
 
 interface Response {
-  toptracks: Music;
+  toptracks?: Music;
+  tracks?: Music;
   //page: number;
 }
 
@@ -34,13 +35,35 @@ export class MusicService {
     let requestUrl;
     if (method === "artist.gettoptracks"){
       requestUrl = this.url +"?method="+ method +   "&artist=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
+      this.http.get(requestUrl).subscribe(
+        (response: Response) => {
+          console.log(response);
+          this.music = response.toptracks;
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
     } else if (method === "track.search" ) {
       requestUrl = this.url +"?method="+ method + "&track=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
+      
     } else {
       requestUrl =
-      //this.url + "/tag.php?&fct=search&type=mood"; // add whatever params you want from here: https://developers.themoviedb.org/3/discover/movie-discover
       this.url+"?method=" + method + "&tag=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
       console.log('requestURL:',requestUrl);
+         
+      if (method === "tag.gettoptracks"){
+        this.http.get(requestUrl).subscribe(
+          (response: Response) => {
+            console.log(response);
+            this.music = response.tracks;
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+
+      }
     }
     //console.log(type);
    
