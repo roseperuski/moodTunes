@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
+  menuOpen: boolean=false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  closeMenu() {
+    this.menuOpen=false;
+  }
 }

@@ -26,11 +26,11 @@
     artist: string[];
     image: string;
   }
-  export interface Toptracks {
-    attr:{
-      artist:string;
-    };
-    // url: string;
-    // artist: string[];
-    // image: string;
-  } 
+  // export interface Toptracks {
+  //   attr:{
+  //     artist:string;
+  //   };
+  //   // url: string;
+  //   // artist: string[];
+  //   // image: string;
+  // } 

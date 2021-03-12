@@ -4,17 +4,16 @@
   <h2>My Results</h2>
     <div class="artist">Artist Name: {{ musicService.music['@attr'].artist}}</div> 
     <div class ="result-card" *ngFor="let music of musicService.music.track; let i= index;">  
+  
+      <div class="song">Song: {{ music.name }}</div> 
 
-   
-    <div class="song">Song: {{ music.name }}</div> 
+      <img [src]="music.image[1]['#text']" alt="music.url" />
 
-    <img [src]="" alt="" />
+      <button>Details</button>
+      <button>Add to Playlist</button>
+      <!-- <button id="add_btn" (click)="addPlaylist()"><img src="https://img.icons8.com/officel/16/000000/like--v2.png"/></button> -->
 
-    <button>Details</button>
-    <button>Add to Playlist</button>
-    <!-- <button id="add_btn" (click)="addPlaylist()"><img src="https://img.icons8.com/officel/16/000000/like--v2.png"/></button> -->
-
-  </div>
+    </div>
 
 </main>
 
