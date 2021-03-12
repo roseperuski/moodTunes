@@ -1,1 +1,34 @@
-<p>nav works!</p>
+<header>
+    <img id="logo-words" src="/assets/moodTunesNB.png" routerLink="">
+
+    <nav role="navigation">
+
+        <ul class="top-menu">
+            <!-- <li class="nav-link"><a routerLink="/login">Log in or Sign up</a></li>
+            <li class="nav-link"><a routerLink="/profile">My Profile</a></li>
+            <li class="nav-link"><a routerLink="/playlists">My Playlists</a></li> -->
+            <a routerLink="/login"><li>Log in or Sign up</li></a>
+            <a routerLink="/profile"><li>My Profile</li></a>
+            <a routerLink="/playlists"><li>My Playlists</li></a>
+    </ul>
+
+        <div id="menuToggle">
+
+            <input type="checkbox" [(ngModel)]="menuOpen" />
+          
+            <span></span>
+            <span></span>
+            <span></span>
+          
+            <ul id="menu">
+                <!-- <li class="nav-link"><a routerLink="/login">Log in or Sign up</a></li>
+                <li class="nav-link"><a routerLink="/profile">My Profile</a></li>
+                <li class="nav-link"><a routerLink="/playlists">My Playlists</a></li> -->
+                <a (click)="closeMenu()" routerLink="/login"><li>Log in or Sign up</li></a>
+                <a (click)="closeMenu()" routerLink="/profile"><li>My Profile</li></a>
+                <a (click)="closeMenu()" routerLink="/playlists"><li>My Playlists</li></a>
+            </ul>
+        </div>
+    </nav>
+</header>
+    

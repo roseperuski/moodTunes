@@ -7,7 +7,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { SearchMusicComponent } from './search-music/search-music.component';
 import { NavComponent } from './nav/nav.component';
 import { ResultsComponent } from './results/results.component';
-import { PlaylistsComponent } from './playlists/playlists.component'
+import { PlaylistsComponent } from './playlists/playlists.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component'
 import { FormsModule } from '@angular/forms'
 
 @NgModule({
@@ -16,7 +18,9 @@ import { FormsModule } from '@angular/forms'
     SearchMusicComponent,
     NavComponent,
     ResultsComponent,
-    PlaylistsComponent
+    PlaylistsComponent,
+    ProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
