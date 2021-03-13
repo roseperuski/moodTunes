@@ -11,8 +11,11 @@ import { MusicService } from '../music.service';
 export class CardComponent implements OnInit {
   @Input() public music: Music;
   constructor(public musicService: MusicService) { }
+  
+  
 
   ngOnInit(): void {
+    
   }
 
 }

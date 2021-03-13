@@ -6,7 +6,7 @@
         <img mat-card-image src="" alt="">
         <mat-card-content></mat-card-content>
         <mat-card-actions>
-            <button mat-button>Details </button>
+            <button mat-button (click)="openDialog()" attr.aria-label="Details for {{ music.name }} ">Details </button>
             <button mat-fab attr.aria-label="Add {{ music.name }} to playlist">
                 <mat-icon>favorite</mat-icon>
               </button>

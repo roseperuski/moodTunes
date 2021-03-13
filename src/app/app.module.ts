@@ -17,6 +17,8 @@ import {MatCardModule} from '@angular/material/card';
 import { LandingComponent } from './landing/landing.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {matDialogAnimations, MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import {MatIconModule} from '@angular/material/icon';
     LoginComponent,
     CardComponent,
     LandingComponent,
+    DialogComponent,
     
   ],
   imports: [
@@ -39,7 +42,8 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
 
   ],
   providers: [],
