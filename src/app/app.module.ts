@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from './card/card.component'
 import {MatCardModule} from '@angular/material/card';
 import { LandingComponent } from './landing/landing.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { LandingComponent } from './landing/landing.component';
     ProfileComponent,
     LoginComponent,
     CardComponent,
-    LandingComponent
+    LandingComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ import { LandingComponent } from './landing/landing.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule
 
   ],
   providers: [],
