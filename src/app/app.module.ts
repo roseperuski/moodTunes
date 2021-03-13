@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from './card/card.component'
 import {MatCardModule} from '@angular/material/card';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MatCardModule} from '@angular/material/card';
     PlaylistsComponent,
     ProfileComponent,
     LoginComponent,
-    CardComponent
+    CardComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

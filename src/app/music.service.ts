@@ -31,6 +31,19 @@ export class MusicService {
   music: Music;
 
   constructor(private http: HttpClient) { }
+  
+  getMusicLanding(){
+    const requestUrl =  this.url + "?method=chart.gettoptracks&api_key=" + this.apiKey +"&format=json"
+    this.http.get(requestUrl).subscribe(
+      (response: Response) => {
+        console.log(response);
+        this.music = response.tracks;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
   getMusic(method?: string, searchString?: string){
     let requestUrl;
     if (method === "artist.gettoptracks"){
