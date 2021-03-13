@@ -28,28 +28,25 @@
 
   </div>
 </main> -->
-<div>
-  <form role="search">
-    <h2 id="search-by">Search by:</h2>
-    <mat-form-field appearance="fill">
-      <mat-label>Search By </mat-label>
-      <select matNativeControl [(ngModel)]="selectedSearch" name="search">
-        <option value="" selected></option>
-        <option *ngFor="let search of searches" [value]="search.value">
-          {{search.viewValue}}
-        </option>
-      </select>
-    </mat-form-field>
-    
- 
-    <label
-      >Search Terms:
-      <input type="text" name="searchTerm" [(ngModel)]="searchTerm" required />
-    </label>
-    <button (click)="fetchDataService()" routerLink="/results">Search</button>
-  </form>
-</div>
-<p> Selected search: {{selectedSearch}} </p>
-
-
+<main>
+  <div>
+    <form role="search">
+      <h1 id="search-by">Search by:</h1>
+        <select aria-labelledby="search-by" matNativeControl [(ngModel)]="selectedSearch" name="search">
+          <option value="" selected></option>
+          <option *ngFor="let search of searches" [value]="search.value">
+            {{ search.viewValue }}
+          </option>
+        </select>
+      
+  
+      <label
+        >Search Terms:
+        <input type="text" name="searchTerm" [(ngModel)]="searchTerm" required />
+      </label>
+      <button (click)="fetchDataService()" routerLink="/results">Search</button>
+    </form>
+  </div>
+  <p>Selected search: {{ selectedSearch }}</p>
+</main>
 
