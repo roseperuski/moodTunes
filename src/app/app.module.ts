@@ -10,7 +10,10 @@ import { ResultsComponent } from './results/results.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component'
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardComponent } from './card/card.component'
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import { FormsModule } from '@angular/forms'
     ResultsComponent,
     PlaylistsComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatCardModule
 
   ],
   providers: [],

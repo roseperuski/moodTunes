@@ -1,0 +1,12 @@
+section{
+    display: flex;
+    flex-flow: wrap;
+   flex-direction: row;
+    
+}
+
+.result-card{
+    width: 100px;
+    margin: 5px;
+}
+

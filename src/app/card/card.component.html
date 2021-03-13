@@ -1,0 +1,14 @@
+<section>
+    <mat-card  role="group" aria-label="search results" class="result-card" *ngFor="let music of musicService.music.track; let i= index;">
+        <mat-card-header>
+            <mat-card-title>{{ music.name }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="" alt="">
+        <mat-card-content></mat-card-content>
+        <mat-card-actions>
+            <button mat-button>Details </button>
+            <button mat-button>Add to Playlist</button>
+        </mat-card-actions>
+    </mat-card>
+</section>
+
