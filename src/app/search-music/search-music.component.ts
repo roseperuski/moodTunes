@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MusicService } from '../music.service';
 
+interface SearchBy {
+  value: string;
+  viewValue: string;
+}
+
 
 @Component({
   selector: 'app-search-music',
@@ -9,8 +14,20 @@ import { MusicService } from '../music.service';
 })
 
 export class SearchMusicComponent implements OnInit {
+
+
+  selectedSearch: string;
+  
+  searches: SearchBy[] = [
+    {value: 'tag.gettoptracks', viewValue: 'Tracks by Mood'},
+    {value: 'tag.gettopartists', viewValue: 'Artists by Mood'},
+    {value: 'artist.gettoptracks', viewValue: 'Artist'},
+    {value: 'track.search', viewValue: 'Track'}
+  ];
+  //selectedSearch=this.searches[0].value;
+  
   searchTerm: string;
-  selectedFilter: string ="";
+  //selectedFilter: string ="";
   constructor(public musicService: MusicService) { }
 
   ngOnInit(): void {
@@ -20,13 +37,16 @@ export class SearchMusicComponent implements OnInit {
   fetchDataService(){
     const term = this.searchTerm;
     console.log("this is the term " + term)
-    this.musicService.getMusic(this.selectedFilter, this.searchTerm);
+    this.musicService.getMusic(this.selectedSearch, this.searchTerm);
   }
 
-  onOptionsSelected(event: any){
-    this.selectedFilter=event.target.value;
-    console.log(this.selectedFilter);
-  }
+  // onOptionsSelected(event: any){
+  //   this.selectedFilter=event.target.value;
+  //   console.log(this.selectedFilter);
+  // }
+  // selectSearch(event: Event) {
+  //   this.selectedSearch = (event.target as HTMLSelectElement).value;
+  // }
   
 
 }

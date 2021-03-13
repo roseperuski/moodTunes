@@ -13,7 +13,8 @@ section{
     justify-content: center;
 }
 
-h2{
+button:focus{
+    outline: 1px solid black;
     
 }
 

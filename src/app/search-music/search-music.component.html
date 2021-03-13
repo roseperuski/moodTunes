@@ -30,17 +30,18 @@
 </main> -->
 <div>
   <form role="search">
-    <div class="select">
-      <label for="search-type" id="search-by">Search By:</label>
-      <select name="search-type" aria-labelledby="search-by"  (change)="onOptionsSelected($event)" required>
-        <option value="">------</option>
-        <option value="tag.gettoptracks">Tracks by Mood</option>
-        <option value="tag.gettopartists">Artists by Mood</option>
-        <option value="artist.gettoptracks">Artist</option>
-        <option value="track.search">Track</option>
+    <h2 id="search-by">Search by:</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Search By </mat-label>
+      <select matNativeControl [(ngModel)]="selectedSearch" name="search">
+        <option value="" selected></option>
+        <option *ngFor="let search of searches" [value]="search.value">
+          {{search.viewValue}}
+        </option>
       </select>
-    </div>
-
+    </mat-form-field>
+    
+ 
     <label
       >Search Terms:
       <input type="text" name="searchTerm" [(ngModel)]="searchTerm" required />
@@ -48,3 +49,7 @@
     <button (click)="fetchDataService()" routerLink="/results">Search</button>
   </form>
 </div>
+<p> Selected search: {{selectedSearch}} </p>
+
+
+
