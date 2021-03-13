@@ -3,11 +3,17 @@ section{
     flex-flow: wrap;
    flex-direction: row;
    margin: 10px;
+   justify-content: space-evenly;
     
 }
 
 .result-card{
-    width: 100px;
+    width: 200px;
     margin: 5px;
+    justify-content: center;
+}
+
+h2{
+    
 }
 
