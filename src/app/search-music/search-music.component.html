@@ -24,26 +24,43 @@
   <div>
     <form role="search">
       <!-- <h1 id="search-by">Search by:</h1> -->
-        <!-- <select aria-labelledby="search-by" matNativeControl [(ngModel)]="selectedSearch" name="search">
+      <!-- <select aria-labelledby="search-by" matNativeControl [(ngModel)]="selectedSearch" name="search">
           <option value="" selected></option>
           <option *ngFor="let search of searches" [value]="search.value">
             {{ search.viewValue }}
           </option>
         </select> -->
-        <mat-form-field>
-          <mat-select placeholder="Select a Search">
-            <mat-option *ngFor="let search of searches" [value]="search.value">
+      <mat-form-field>
+        <mat-select
+          placeholder="Select a Search"
+          [(ngModel)]="selectedSearch"
+          name="selectedSearch"
+        >
+          <mat-option *ngFor="let search of searches" [value]="search.value">
             {{ search.viewValue }}
           </mat-option>
-          </mat-select>
-        </mat-form-field>
-      
-  
-      <label
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-form-field">
+        <mat-label>Enter Search Terms</mat-label>
+        <input matInput type="text" [(ngModel)]="searchTerm">
+        <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+
+      </mat-form-field>
+
+      <!-- <label
         >Search Terms:
-        <input type="text" name="searchTerm" [(ngModel)]="searchTerm" required />
-      </label>
-      <button (click)="fetchDataService()" routerLink="/results">Search</button>
+        <input
+          type="text"
+          name="searchTerm"
+          [(ngModel)]="searchTerm"
+          required
+        />
+      </label> -->
+      <button mat-raised-button color="primary" (click)="fetchDataService()" routerLink="/results">Search</button>
     </form>
   </div>
   <p>Selected search: {{ selectedSearch }}</p>

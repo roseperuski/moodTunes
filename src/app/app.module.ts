@@ -21,6 +21,7 @@ import {matDialogAnimations, MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatDialogModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatInputModule
     
 
   ],
