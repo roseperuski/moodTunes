@@ -23,13 +23,20 @@
 <main>
   <div>
     <form role="search">
-      <h1 id="search-by">Search by:</h1>
-        <select aria-labelledby="search-by" matNativeControl [(ngModel)]="selectedSearch" name="search">
+      <!-- <h1 id="search-by">Search by:</h1> -->
+        <!-- <select aria-labelledby="search-by" matNativeControl [(ngModel)]="selectedSearch" name="search">
           <option value="" selected></option>
           <option *ngFor="let search of searches" [value]="search.value">
             {{ search.viewValue }}
           </option>
-        </select>
+        </select> -->
+        <mat-form-field>
+          <mat-select placeholder="Select a Search">
+            <mat-option *ngFor="let search of searches" [value]="search.value">
+            {{ search.viewValue }}
+          </mat-option>
+          </mat-select>
+        </mat-form-field>
       
   
       <label
