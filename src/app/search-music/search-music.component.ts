@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MusicService } from '../music.service';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatFormFieldControl} from '@angular/material/form-field';
 interface SearchBy {
   value: string;
   viewValue: string;
@@ -10,7 +11,10 @@ interface SearchBy {
 @Component({
   selector: 'app-search-music',
   templateUrl: './search-music.component.html',
-  styleUrls: ['./search-music.component.css']
+  styleUrls: ['./search-music.component.css'],
+  providers: [
+    { provide: MatFormFieldControl, useExisting: SearchMusicComponent }   
+  ]
 })
 
 export class SearchMusicComponent implements OnInit {
