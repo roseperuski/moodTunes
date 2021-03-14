@@ -6,6 +6,8 @@ import {Track} from './track'
 interface Response {
   toptracks?: Music;
   tracks?: Music;
+  topartists?: Music;
+  results?: Music;
   //page: number;
 }
 
@@ -76,6 +78,17 @@ export class MusicService {
           }
         );
 
+      } else {
+        this.http.get(requestUrl).subscribe(
+          (response: Response) => {
+            console.log(response);
+            this.music = response.topartists;
+            console.log(this.music);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
       }
     }
     //console.log(type);

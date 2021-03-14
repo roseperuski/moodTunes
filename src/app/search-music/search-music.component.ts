@@ -29,7 +29,7 @@ export class SearchMusicComponent implements OnInit {
     {value: 'track.search', viewValue: 'Track'}
   ];
   //selectedSearch=this.searches[0].value;
-  
+  searchSelect: string;
   searchTerm: string;
   //selectedFilter: string ="";
   constructor(public musicService: MusicService) { }
@@ -42,6 +42,7 @@ export class SearchMusicComponent implements OnInit {
     const term = this.searchTerm;
     console.log("this is the term " + term)
     this.musicService.getMusic(this.selectedSearch, this.searchTerm);
+    console.log("this is the searchSelect" + this.searchSelect);
   }
 
   // onOptionsSelected(event: any){
@@ -52,5 +53,5 @@ export class SearchMusicComponent implements OnInit {
   //   this.selectedSearch = (event.target as HTMLSelectElement).value;
   // }
   
-
+ 
 }

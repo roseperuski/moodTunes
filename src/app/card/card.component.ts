@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { from } from 'rxjs';
 import { Music } from '../music';
 import { MusicService } from '../music.service';
+
 
 
 @Component({
@@ -10,12 +12,18 @@ import { MusicService } from '../music.service';
 })
 export class CardComponent implements OnInit {
   @Input() public music: Music;
+  @Input() searchSelect: string;
+  
   constructor(public musicService: MusicService) { }
   
-  
+  // if (searchSelect==="tag.gettoptracks"){
+  //   console.log ("we got the first. ")
+  // }
 
   ngOnInit(): void {
     
   }
+
+  
 
 }

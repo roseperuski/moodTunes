@@ -1,5 +1,7 @@
 <section>
+    <p>the selectedSearch is: {{searchSelect}}</p>
     <mat-card  role="group" aria-label="search results" class="result-card" *ngFor="let music of musicService.music.track; let i= index;">
+        <!-- <mat-card role="group" aria-label="search results" class="result-card" *ngFor="let music of musicService.music.artist; let i= index;"> -->
         <mat-card-header>
             <h2 mat-card-title>{{ music.name }}</h2>
             <mat-card-subtitle> {{music.artist.name}} </mat-card-subtitle>
