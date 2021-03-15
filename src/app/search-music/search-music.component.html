@@ -22,7 +22,7 @@
 </main> -->
 <main>
   <div>
-    <form role="search">
+    
       <!-- <h1 id="search-by">Search by:</h1> -->
       <!-- <select aria-labelledby="search-by" matNativeControl [(ngModel)]="selectedSearch" name="search">
           <option value="" selected></option>
@@ -44,7 +44,7 @@
 
       <mat-form-field class="example-form-field">
         <mat-label>Enter Search Terms</mat-label>
-        <input matInput type="text" [(ngModel)]="searchTerm">
+        <input matInput type="text" [(ngModel)]="searchTerm" name="search-term">
         <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
           <mat-icon>close</mat-icon>
         </button>
@@ -60,8 +60,8 @@
           required
         />
       </label> -->
-      <button mat-raised-button color="primary" (click)="fetchDataService()" routerLink="/results">Search</button>
-    </form>
+      <button mat-raised-button color="primary" (click)="fetchDataService()" routerLink="/results" name="submit">Search</button>
+    
   </div>
   <p>Selected search: {{ selectedSearch }}</p>
 </main>

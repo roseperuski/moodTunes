@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Music } from '../music';
-import { MusicService } from '../music.service';
+import { Music } from '../../music';
+import { MusicService } from '../../music.service';
 
 
 @Component({

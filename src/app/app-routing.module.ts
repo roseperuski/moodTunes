@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SearchMusicComponent } from './search-music/search-music.component';
-import { ResultsComponent } from './results/results.component';
+import { ResultsComponent } from './search-music/results/results.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
