@@ -6,6 +6,7 @@ import {Track} from './track'
 interface Response {
   toptracks?: Music;
   tracks?: Music;
+  results?: Music;
   //page: number;
 }
 
@@ -29,7 +30,7 @@ export class MusicService {
   //url = "http://localhost:8080/api/V6";
   url="http://ws.audioscrobbler.com/2.0/";
   music: Music;
-
+  selectedSearch="";
   constructor(private http: HttpClient) { }
   
   getMusicLanding(){
@@ -59,6 +60,17 @@ export class MusicService {
       );
     } else if (method === "track.search" ) {
       requestUrl = this.url +"?method="+ method + "&track=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
+      this.http.get(requestUrl).subscribe(
+        (response: Response) => {
+          console.log(response);
+          this.music = response.results;
+          console.log(this.music.trackmatches);
+
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
       
     } else {
       requestUrl =
@@ -89,6 +101,16 @@ export class MusicService {
         console.error(error);
       }
     );
+  }
+
+  setSelectedSearch(tag: string){
+    this.selectedSearch=tag;
+  }
+
+  getSelectedSearch(){
+    console.log("Selected search is " + this.selectedSearch);
+    return this.selectedSearch;
+
   }
   // getUrlWithAPIKey() {
     //return `${this.url}?api_key=${this.apiKey}&language=en-US`;

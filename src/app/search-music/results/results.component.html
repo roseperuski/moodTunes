@@ -2,7 +2,7 @@
 <main>
 
   <h2>My Results</h2>
-    <div class="artist">Artist Name: {{ musicService.music['@attr'].artist}}</div> 
+    <div class="artist" *ngIf="displayArtistName">Artist Name: {{ musicService.music['@attr'].artist}}</div> 
     <!-- <div class ="result-card" *ngFor="let music of musicService.music.track; let i= index;">  
   
       <div class="song">Song: {{ music.name }}</div> 

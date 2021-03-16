@@ -9,10 +9,21 @@ import { MusicService } from '../../music.service';
 })
 export class ResultsComponent implements OnInit { 
   @Input() public music: Music;
+  @Input() selectedSearch: string;
+
+  displayArtistName: boolean = false;
 
   constructor(public musicService: MusicService) { }
 
   ngOnInit(): void {
+    this.displayArtist(this.musicService.getSelectedSearch());
+  }
+
+  displayArtist(tag: string){
+    if(tag==="artist.gettoptracks"){
+      this.displayArtistName=true;
+      console.log(this.displayArtistName);
+    }
   }
 
 }

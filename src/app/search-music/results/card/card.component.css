@@ -1,0 +1,33 @@
+section{
+    display: flex;
+    flex-flow: wrap;
+   flex-direction: row;
+   margin: 10px;
+   justify-content: space-evenly;
+    
+}
+
+.result-card{
+    width: 400px;
+    margin: 5px;
+    justify-content: center;
+}
+
+button:focus{
+    outline: 1px solid black;
+    
+}
+
+@media screen and (min-width: 768px) {
+    .result-card{
+        width: 200px;
+        margin: 5px;
+        display: flex;
+        justify-content: center;
+       
+    }
+
+}
+
+
+
