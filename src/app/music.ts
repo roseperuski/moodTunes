@@ -4,13 +4,14 @@
     }; 
     track?:Track [];
     moodTracks?:Moodtracks [];
-    
+    results?:Results [];
+    trackmatches?:any;
    }
    export interface Track {
     name: string;
     url: string;
     artist: string[];
-    image: string;
+    mbid: string;
   }
   export interface Moodtracks {
     artist?:{
@@ -23,4 +24,14 @@
     image?: string;
     } 
 
+    export interface TrackResults {
+      name: string;
+      url: string;
+      artist: string[];
+      mbid: string;
+    }
+    export interface Results {
+      trackmatches:{
+       track: TrackResults []}; 
+      } 
 
