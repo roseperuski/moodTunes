@@ -6,7 +6,7 @@ import {Track} from './track'
 interface Response {
   toptracks?: Music;
   tracks?: Music;
-  results?: Music;
+  results?:Music;
   //page: number;
 }
 
@@ -65,13 +65,11 @@ export class MusicService {
           console.log(response);
           this.music = response.results;
           console.log(this.music.trackmatches);
-
         },
         (error) => {
           console.error(error);
         }
       );
-      
     } else {
       requestUrl =
       this.url+"?method=" + method + "&tag=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
