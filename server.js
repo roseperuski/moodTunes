@@ -7,7 +7,8 @@ const express = require("express");
 const proxy = require("express-http-proxy");
 
 const app = express();
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const cors = require("cors");
 
 app.use(cors());
@@ -22,6 +23,6 @@ app.use(
   })
 );
 
-app.listen(port, (_) => {
+app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
 });

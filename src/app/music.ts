@@ -1,27 +1,40 @@
-export interface Music {
-  '@attr'?: {
-    artist: string;
-  };
-  track?: Track[];
-  moodTracks?: Moodtracks[];
-  artist?: Moodartists[];
-}
-export interface Track {
-  name: string;
-  url: string;
-  artist: string[];
-  image: string;
-}
-export interface Moodtracks {
-  artist?: {
+ export interface Music {
+   "@attr":{
+      artist:string;
+    }; 
+    track?:Track [];
+    moodTracks?:Moodtracks [];
+    results?:Results [];
+    trackmatches?:any;
+   }
+   export interface Track {
     name: string;
     mbid: string;
     url: string;
-  };
-  url?: string;
-  name?: string;
-  image?: string;
-}
+    artist: string[];
+    //mbid: string;
+  }
+  export interface Moodtracks {
+    artist?:{
+      name:string;
+      mbid:string;
+      url:string;
+    };
+    url?: string;
+    name?: string;
+    image?: string;
+    } 
+
+    export interface TrackResults {
+      name: string;
+      url: string;
+      artist: string[];
+      mbid: string;
+    }
+    export interface Results {
+      trackmatches:{
+       track: TrackResults []}; 
+      } 
 
 export interface Moodartists {
   '@attr:': {

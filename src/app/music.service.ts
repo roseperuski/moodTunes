@@ -6,8 +6,8 @@ import {Track} from './track'
 interface Response {
   toptracks?: Music;
   tracks?: Music;
-  topartists?: Music;
-  results?: Music;
+  results?:Music;
+
   //page: number;
 }
 
@@ -61,7 +61,16 @@ export class MusicService {
       );
     } else if (method === "track.search" ) {
       requestUrl = this.url +"?method="+ method + "&track=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
-      
+      this.http.get(requestUrl).subscribe(
+        (response: Response) => {
+          console.log(response);
+          this.music = response.results;
+          console.log(this.music.trackmatches);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
     } else {
       requestUrl =
       this.url+"?method=" + method + "&tag=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
@@ -82,7 +91,7 @@ export class MusicService {
         this.http.get(requestUrl).subscribe(
           (response: Response) => {
             console.log(response);
-            this.music = response.topartists;
+            //this.music = response.topartists;
             console.log(this.music);
           },
           (error) => {
