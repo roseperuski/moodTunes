@@ -14,14 +14,16 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const url = "https://musicovery.com/api/V6";
+//const url = "https://musicovery.com/api/V6";
 
-app.use(
-  "/",
-  proxy(url, {
-    userResHeaderDecorator: () => ({ "Access-Control-Allow-Origin": "*" }),
-  })
-);
+// app.use(
+//   "/",
+//   proxy(url, {
+//     userResHeaderDecorator: () => ({ "Access-Control-Allow-Origin": "*" }),
+//   })
+// );
+
+app.use(express.static(__dirname + "/public"));
 
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
