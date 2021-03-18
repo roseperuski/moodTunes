@@ -30,6 +30,10 @@ export class MusicService {
   //url = "http://localhost:8080/api/V6";
   url="http://ws.audioscrobbler.com/2.0/";
   music: Music;
+  musicArray: Music [];
+
+  public apiUrl: string = "/api";
+
 
   constructor(private http: HttpClient) { }
   
@@ -100,6 +104,41 @@ export class MusicService {
       }
     );
   }
+
+  getTracks(): void {
+    this.musicArray = [];
+    // Make an API request to our Animal Crossings API
+    // Set the response of that request to our this.villagers array
+    this.http
+      .get(this.apiUrl) // calling the API
+      .subscribe(
+        // subscribing to run our functions when the data returns
+        (data) => {
+          // this is what happens on success
+          // convert object to an array
+          for (const key in data) {
+            if (Object.prototype.hasOwnProperty.call(data, key)) {
+              const playList = data[key]; // individual villager
+
+              // converting the format of the API to the format
+              // that we are expecting in our Villager interface
+              // villager.name = villager.name["name-USen"];
+
+              this.musicArray.push(playList);
+              console.log(this.musicArray);
+            }
+          }
+        },
+        (error) => {
+          // this is what happens on failure
+          console.error(error);
+        }
+      );
+  }
+
+  
+
+
   // getUrlWithAPIKey() {
     //return `${this.url}?api_key=${this.apiKey}&language=en-US`;
     //return `${this.url}?api_key=${this.apiKey}&language=en-US`;

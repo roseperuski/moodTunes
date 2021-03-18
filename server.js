@@ -23,6 +23,12 @@ app.use(express.json());
 //   })
 // );
 
+app.use(express.json());
+
+const routes = require("./routes");
+app.use("/api/", routes);
+
+
 app.use(express.static(__dirname + "/public"));
 
 app.listen(port, () => {

@@ -17,5 +17,11 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     
   }
+ 
+  addPlaylist(music: Music){
+
+  this.musicService.getTracks(); 
+  }
+   
 
 }
