@@ -32,6 +32,7 @@ export class MusicService {
   music: Music;
   musicArray: Music [];
 
+  //public apiUrl: string = "http://localhost:3000/api";
   public apiUrl: string = "/api";
 
 
@@ -106,6 +107,7 @@ export class MusicService {
   }
 
   getTracks(): void {
+    
     this.musicArray = [];
     // Make an API request to our Animal Crossings API
     // Set the response of that request to our this.villagers array
@@ -114,6 +116,7 @@ export class MusicService {
       .subscribe(
         // subscribing to run our functions when the data returns
         (data) => {
+          console.log('myfavorite:',data);
           // this is what happens on success
           // convert object to an array
           for (const key in data) {
