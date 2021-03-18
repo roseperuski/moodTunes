@@ -31,3 +31,11 @@ app.use(express.static(__dirname + "/public"));
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
 });
+const secret = process.env.SECRET;  
+const url = "https://api.discogs.com";
+app.use(
+  "/proxy",
+  proxy(url, {
+    userResHeaderDecorator: () => ({ "Authorization": "Discogs key=pXLfosMaWGQQMMRYSLGv, secret=" + secret }),
+  })
+); console.log(secret);
