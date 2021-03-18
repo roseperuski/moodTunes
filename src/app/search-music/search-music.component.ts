@@ -42,6 +42,7 @@ export class SearchMusicComponent implements OnInit {
     const term = this.searchTerm;
     console.log("this is the term " + term)
     this.musicService.getMusic(this.selectedSearch, this.searchTerm);
+    this.musicService.setSelectedSearch(this.selectedSearch);
   }
 
   // onOptionsSelected(event: any){

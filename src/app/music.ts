@@ -6,6 +6,7 @@
     moodTracks?:Moodtracks [];
     results?:Results [];
     trackmatches?:any;
+    artist?: any;
    }
    export interface Track {
     name: string;
@@ -34,4 +35,13 @@
       trackmatches:{
        track: TrackResults []}; 
       } 
+
+      export interface Artists {
+        topartists: {
+          artist : string[];
+        }
+      }
+
+
+
 

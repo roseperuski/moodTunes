@@ -7,6 +7,7 @@ interface Response {
   toptracks?: Music;
   tracks?: Music;
   results?:Music;
+  topartists?: Music;
   //page: number;
 }
 
@@ -34,7 +35,7 @@ export class MusicService {
 
   //public apiUrl: string = "http://localhost:3000/api";
   public apiUrl: string = "/api";
-
+  selectedSearch: string="";
 
   constructor(private http: HttpClient) { }
   
@@ -91,19 +92,29 @@ export class MusicService {
           }
         );
 
+      } else {
+        this.http.get(requestUrl).subscribe(
+          (response: Response) => {
+            console.log(response);
+            this.music = response.topartists;
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
       }
     }
     //console.log(type);
    
-    this.http.get(requestUrl).subscribe(
-      (response: Response) => {
-        console.log(response);
-        this.music = response.toptracks;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+    // this.http.get(requestUrl).subscribe(
+    //   (response: Response) => {
+    //     console.log(response);
+    //     this.music = response.toptracks;
+    //   },
+    //   (error) => {
+    //     console.error(error);
+    //   }
+    // );
   }
 
   getTracks(): void {
@@ -140,8 +151,15 @@ export class MusicService {
   }
 
   
+  setSelectedSearch(tag: string){
+    this.selectedSearch=tag;
+    console.log(this.selectedSearch);
+  }
 
-
+  getSelectedSearch(){
+    console.log("Selected search is " + this.selectedSearch);
+    return this.selectedSearch;
+  }
   // getUrlWithAPIKey() {
     //return `${this.url}?api_key=${this.apiKey}&language=en-US`;
     //return `${this.url}?api_key=${this.apiKey}&language=en-US`;
