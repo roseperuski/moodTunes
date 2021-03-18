@@ -28,7 +28,7 @@ interface Response {
 export class MusicService {
   apiKey = "b88d365cdf804155ac40618e402f7ce5";
   //url = "http://localhost:8080/api/V6";
-  url="http://ws.audioscrobbler.com/2.0/";
+  url="https://ws.audioscrobbler.com/2.0/";
   music: Music;
   musicArray: Music [];
 
@@ -106,7 +106,7 @@ export class MusicService {
     );
   }
 
-  getTracks(): void {
+  getPlaylist(): void {
     
     this.musicArray = [];
     // Make an API request to our Animal Crossings API

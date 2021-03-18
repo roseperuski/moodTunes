@@ -18,10 +18,9 @@ export class CardComponent implements OnInit {
     
   }
  
-  addPlaylist(music: Music){
-
-  this.musicService.getTracks(); 
-  }
+  // addPlaylist(music: Music){
+      // this.musicService.getTracks(); 
+  // }
    
 
 }
