@@ -13,7 +13,9 @@ export class CardComponent implements OnInit {
   @Input() selectedSearch: string;
   constructor(public musicService: MusicService) { }
   
-  
+  moodTrack: boolean = false;
+  showTrack: boolean = false;
+  moodArtist: boolean = false;
 
   ngOnInit(): void {
     this.musicService.getSelectedSearch();
