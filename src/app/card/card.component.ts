@@ -11,6 +11,7 @@ import { MusicService } from '../music.service';
 export class CardComponent implements OnInit {
   @Input() public music: Music;
   @Input() selectedSearch: string;
+
   constructor(public musicService: MusicService) { }
   
   moodTrack: boolean = false;
@@ -18,14 +19,29 @@ export class CardComponent implements OnInit {
   moodArtist: boolean = false;
 
   ngOnInit(): void {
-    this.musicService.getSelectedSearch();
-    
+    this.selectedSearch = this.musicService.getSelectedSearch();
+    this.setSearchShow(this.selectedSearch);
   }
  
   addPlaylist(music: Music){
 
   this.musicService.getTracks(); 
+  
   }
    
+  setSearchShow(search : string){
+    search = this.selectedSearch;
+    if (search === "tag.gettoptracks"){
+      this.moodTrack = true;
+    } else if (search === "tag.gettopartists") {
+      this.moodArtist = true;
+    } else if (search==="track.search"){
+      this.showTrack = true;
+    } else {
+      this.moodTrack = true;
+    }
+
+    console.log ("tag:", this.selectedSearch)
+  }
 
 }
