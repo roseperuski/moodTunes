@@ -23,11 +23,7 @@ export class CardComponent implements OnInit {
     this.setSearchShow(this.selectedSearch);
   }
  
-  addPlaylist(music: Music){
 
-  this.musicService.getTracks(); 
-  
-  }
    
   setSearchShow(search : string){
     search = this.selectedSearch;
