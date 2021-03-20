@@ -9,6 +9,7 @@ import { MusicService } from '../music.service';
 })
 export class ResultsComponent implements OnInit {
   @Input() public music: Music;
+  @Input() selectedSearch: string;
 
   constructor(public musicService: MusicService) { }
 

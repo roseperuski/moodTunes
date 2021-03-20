@@ -10,7 +10,8 @@ import { MusicService } from '../music.service';
 })
 export class CardComponent implements OnInit {
   @Input() public music: Music;
-  @Input() selectedSearch: string;
+  //@Input() 
+  selectedSearch: string;
 
   constructor(public musicService: MusicService) { }
   
