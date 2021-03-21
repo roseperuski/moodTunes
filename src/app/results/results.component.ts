@@ -8,8 +8,7 @@ import { MusicService } from '../music.service';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
-  @Input() public music: Music;
-  @Input() selectedSearch: string;
+
 
   constructor(public musicService: MusicService) { }
 

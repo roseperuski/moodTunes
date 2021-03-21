@@ -86,6 +86,7 @@ export class MusicService {
           (response: Response) => {
             console.log(response);
             this.music = response.tracks;
+            console.log("tracks result:", this.music);
           },
           (error) => {
             console.error(error);
@@ -97,6 +98,7 @@ export class MusicService {
           (response: Response) => {
             console.log(response);
             this.music = response.topartists;
+            console.log("topartist result:", this.music);
           },
           (error) => {
             console.error(error);

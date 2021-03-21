@@ -9,8 +9,6 @@ import { MusicService } from '../music.service';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() public music: Music;
-  //@Input() 
   selectedSearch: string;
 
   constructor(public musicService: MusicService) { }
