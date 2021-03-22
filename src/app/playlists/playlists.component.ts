@@ -18,13 +18,13 @@ export class PlaylistsComponent implements OnInit {
   }
   
 
-//   removeFromPlayList(deleteIndex: number) {
-//     console.log(deleteIndex);
-//     this.musicService.musiclist.splice(deleteIndex, 1);
-//     console.log(this.musicService);
-//   }
+  deletePlaylist() {
+    // fire an event to the parent,
+    // telling it which villager was deleted
+    this.musicService.deletePlaylist(this.music.id);
+  }
 
-//   selectedMusic(playlistEntry: Music) {
+//   selectedPlaylist(playlistEntry: Music) {
 //     console.log('musicArtist:', playlistEntry.artist_display_name);
 //     playlistEntry.isShowing = !playlistEntry.isShowing;
 //     return playlistEntry.artist_display_name;

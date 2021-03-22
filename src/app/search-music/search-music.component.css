@@ -39,7 +39,11 @@ button{
 }
 
 /* Tablet View */
+<<<<<<< HEAD
 @media screen and (min-width: 480px)  {
+=======
+@media screen and (min-width: 480px) {
+>>>>>>> d7245b6062771b8b2a6df2e6e2445fbf7a6de63f
     .full-width-img {
     margin: auto;
     width: 90%;

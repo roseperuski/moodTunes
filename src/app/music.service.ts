@@ -86,6 +86,7 @@ export class MusicService {
           (response: Response) => {
             console.log(response);
             this.music = response.tracks;
+            console.log("tracks result:", this.music);
           },
           (error) => {
             console.error(error);
@@ -97,6 +98,7 @@ export class MusicService {
           (response: Response) => {
             console.log(response);
             this.music = response.topartists;
+            console.log("topartist result:", this.music);
           },
           (error) => {
             console.error(error);
@@ -115,6 +117,18 @@ export class MusicService {
     //     console.error(error);
     //   }
     // );
+  }
+
+  addPlaylist(musicArray: any) {
+    this.http.post(this.url, musicArray).subscribe((data) => {
+      this.getTracks();
+    });
+  }
+
+  deletePlaylist(id: number) {
+    this.http.delete(this.url + id).subscribe((data) => {
+      this.getTracks();
+    });
   }
 
   getTracks(): void {
