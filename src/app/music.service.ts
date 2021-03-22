@@ -120,8 +120,8 @@ export class MusicService {
   getTracks(): void {
     
     this.musicArray = [];
-    // Make an API request to our Animal Crossings API
-    // Set the response of that request to our this.villagers array
+    // Make an API request to our Playlist API
+    // Set the response of that request to our this.music array
     this.http
       .get(this.apiUrl) // calling the API
       .subscribe(
@@ -132,12 +132,10 @@ export class MusicService {
           // convert object to an array
           for (const key in data) {
             if (Object.prototype.hasOwnProperty.call(data, key)) {
-              const playList = data[key]; // individual villager
+              const playList = data[key]; // individual track 
 
               // converting the format of the API to the format
-              // that we are expecting in our Villager interface
-              // villager.name = villager.name["name-USen"];
-
+              // that we are expecting in our Music interface
               this.musicArray.push(playList);
               console.log(this.musicArray);
             }
@@ -150,6 +148,7 @@ export class MusicService {
       );
   }
 
+  
   
   setSelectedSearch(tag: string){
     this.selectedSearch=tag;

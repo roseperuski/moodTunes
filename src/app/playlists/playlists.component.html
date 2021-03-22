@@ -1,17 +1,31 @@
-<!--<app-nav></app-nav>-->
-<!-- h1>My Playlists</h1>
-<p>playlists works!</p>
+<app-nav></app-nav>
+<section>
+    <!-- mood by track working-->
+    <mat-card
+      
+      role="group"
+      aria-label="search results"
+      class="playlist-card"
+      *ngFor="let music of musicService.music.track; let i = index"
+    >
+      <mat-card-header>
+        <h2 mat-card-title>{{ music.name }}</h2>
+        <mat-card-subtitle> {{music.artist}} </mat-card-subtitle> 
+        <!-- <mat-card-subtitle> {{music.artist.name}} </mat-card-subtitle> -->
+      </mat-card-header>
+      <img mat-card-image src="" alt="" />
+      <mat-card-content></mat-card-content>
+      <mat-card-actions>
+        <!--  this should be a link from postgres Database -->
+        <a class="mat-stroked-button" href="{{music.url}}"  attr.aria-label="Details for {{ music.name }} by {{music.artist}}  ">Details </a>
+                  <button mat-fab attr.aria-label="Delete {{ music.name }} by {{music.artist}} to playlist" (click)="deletePlaylist(music)">
+                      <mat-icon class="material-icons md-24">delete</mat-icon>
+                    </button>
+      </mat-card-actions>
+    </mat-card>
+</section>
+  
 
-<p>playlists works!</p>
-<div id="playListings" *ngFor="let playlistEntry of musicService.playlist; let i= index;"> 
-    <h3>{{playlistEntry.title}}</h3>
-
-    <div *ngIf="playlistEntry.isShowing" class="viewOverview">{{playlistEntry.artist_display_name}}</div>
-    
-    <button class="showOveriew" (click)="selectedMusic(playlistEntry)">Movie Info</button>
-    <button class="removefromPlayList" (click) = "removeFromPlayList(i)" title="Remove from Play list">X</button>
-</div>< -->
-
-
+ 
 
 

@@ -15,7 +15,7 @@ export class PlaylistsComponent implements OnInit {
 
   ngOnInit(): void {
         this.musicService.getTracks(); 
-        }
+  }
   
 
 //   removeFromPlayList(deleteIndex: number) {
