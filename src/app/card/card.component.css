@@ -1,33 +1,38 @@
-section{
-    display: flex;
-    flex-flow: wrap;
-   flex-direction: row;
-   margin: 10px;
-   justify-content: space-evenly;
-    
+section {
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  margin: 10px;
+  justify-content: space-evenly;
 }
 
-.result-card{
-    width: 400px;
-    margin: 5px;
-    justify-content: center;
+.mat-card-header {
+  justify-content: center;
+}
+.mat-card-title {
+  font-size: 30px;
+}
+.result-card {
+  width: 275px;
+  margin: 5px;
 }
 
-button:focus{
-    outline: 1px solid black;
-    
+button:focus {
+  outline: 1px solid black;
 }
 
 @media screen and (min-width: 768px) {
-    .result-card{
+  /* .result-card{
         width: 200px;
         margin: 5px;
         display: flex;
         justify-content: center;
        
-    }
-
+    } */
+  /* div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
 }
-
-
-

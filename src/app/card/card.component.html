@@ -1,17 +1,19 @@
 <!-- <p>the selected value is:{{ selectedSearch }} </p> -->
 
-<section *ngIf="moodTrack" role="group" aria-label="search results">
+<section *ngIf="moodTrack" aria-label="search results">
   <!-- mood by track and artist search complete-->
+  
   <mat-card
     class="result-card"
+    style="text-align: center;"
     *ngFor="let music of musicService.music.track; let i = index"
   >
     <mat-card-header>
       <h2 mat-card-title>{{ music.name }}</h2>
       <mat-card-subtitle> {{ music.artist.name }} </mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="" alt="" />
-    <mat-card-content></mat-card-content>
+    <!-- <img mat-card-image src="" alt="" />
+    <mat-card-content></mat-card-content> -->
     <mat-card-actions>
       <!-- TO DO: this should be a link to the last FM site -->
       <a
@@ -19,7 +21,8 @@
         href="{{ music.artist.url }}"
         attr.aria-label="Details for {{ music.name }} by {{
           music.artist.name
-        }}  "
+        }}"
+        target="_blank"
         >Details
       </a>
       <button
@@ -36,29 +39,36 @@
 </section>
 
 <!-- start of showTrack -->
-<section role="group" aria-label="search results" *ngIf="showTrack">
+<section aria-label="search results" *ngIf="showTrack">
   <mat-card
     class="result-card"
     *ngFor="let music of musicService.music.trackmatches.track; let i = index"
   >
     <mat-card-header>
       <h2 mat-card-title>{{ music.name }}</h2>
-      <mat-card-subtitle> {{music.artist}} </mat-card-subtitle>
-      
+      <mat-card-subtitle> {{ music.artist }} </mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="" alt="" />
-    <mat-card-content></mat-card-content>
+   
     <mat-card-actions>
       <!-- TO DO: this should be a link to the last FM site -->
-      <a class="mat-stroked-button" href="{{music.url}}"  attr.aria-label="Details for {{ music.name }} by {{music.artist}}  ">Details </a>
-                <button mat-fab attr.aria-label="Add {{ music.name }} by {{music.artist}} to playlist" (click)="addPlaylist(music)">
-                    <mat-icon>favorite</mat-icon>
-                  </button>
+      <a
+        class="mat-stroked-button"
+        href="{{ music.url }}"
+        attr.aria-label="Details for {{ music.name }} by {{ music.artist }}  "
+        target="_blank">Details
+      </a>
+      <button
+        mat-fab
+        attr.aria-label="Add {{ music.name }} by {{ music.artist }} to playlist"
+        (click)="addPlaylist(music)"
+      >
+        <mat-icon>favorite</mat-icon>
+      </button>
     </mat-card-actions>
   </mat-card>
 </section>
 <!-- start of artist by mood -->
-<section role="group" aria-label="search results" *ngIf="moodArtist">
+<section aria-label="search results" *ngIf="moodArtist">
   <mat-card
     class="result-card"
     *ngFor="let music of musicService.music.artist; let i = index"
@@ -68,21 +78,26 @@
       <!-- <mat-card-subtitle> {{music.artist}} </mat-card-subtitle> -->
       <!-- <mat-card-subtitle> {{music.artist.name}} </mat-card-subtitle> -->
     </mat-card-header>
-    <img mat-card-image src="" alt="" />
-    <mat-card-content></mat-card-content>
+    <!-- <img mat-card-image src="" alt="" />
+    <mat-card-content></mat-card-content> -->
     <mat-card-actions>
       <!-- TO DO: this should be a link to the last FM site -->
       <a
         class="mat-stroked-button"
-        href="{{music.url}}"
-        attr.aria-label="Details for {{ music.name }} by {{
-          music.name
-        }}  "
+        href="{{ music.url }}"
+        attr.aria-label="Details for {{ music.name }} by {{ music.name }}"
+        target="_blank"
         >Details
       </a>
-            <button mat-fab attr.aria-label="Add {{ music.name }} by {{music.artist.name}} to playlist" (click)="addPlaylist(music)">
-                <mat-icon>favorite</mat-icon>
-              </button> 
+      <button
+        mat-fab
+        attr.aria-label="Add {{ music.name }} by {{
+          music.artist.name
+        }} to playlist"
+        (click)="addPlaylist(music)"
+      >
+        <mat-icon>favorite</mat-icon>
+      </button>
     </mat-card-actions>
   </mat-card>
 </section>

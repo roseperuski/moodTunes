@@ -33,8 +33,8 @@ export class MusicService {
   music: Music;
   musicArray: Music [];
 
-  //public apiUrl: string = "http://localhost:3000/api";
-  public apiUrl: string = "/api";
+  public apiUrl: string = "http://localhost:3000/api";
+  //public apiUrl: string = "/api";
   selectedSearch: string="";
 
   constructor(private http: HttpClient) { }
