@@ -9,7 +9,7 @@ import { MusicService } from '../music.service';
   styleUrls: ['./playlists.component.css']
 })
 export class PlaylistsComponent implements OnInit {
-    @Input() public music: Music;
+   // @Input() public music: Music;
 
   constructor(public musicService:MusicService) { }
 
