@@ -1,6 +1,7 @@
 /* Mobile View */
 h1 {
     font-size: medium;
+    color: white;
 }
 
 form {
@@ -15,6 +16,7 @@ form {
 label {
     padding-right: 5px;
     font-size: 15px;
+    color: white;
 }
 
 select{
