@@ -24,7 +24,7 @@
   <div>
     <form role="search">
       <h1 id="search-by">Search by:</h1>
-        <select aria-labelledby="search-by" matNativeControl [(ngModel)]="selectedSearch" name="search">
+        <select aria-labelledby="search-by" matNativeControl [(ngModel)]="selectedSearch" name="search" required aria-required="true">
           <option value="" selected></option>
           <option *ngFor="let search of searches" [value]="search.value">
             {{ search.viewValue }}
@@ -34,10 +34,11 @@
   
       <label
         >Search Terms:
-        <input type="text" name="searchTerm" [(ngModel)]="searchTerm" required />
+        <input type="text" name="searchTerm" [(ngModel)]="searchTerm" required aria-required="true" />
       </label>
       <button (click)="fetchDataService()" routerLink="/results">Search</button>
     </form>
   </div>
-  <p>Selected search: {{ selectedSearch }}</p>
+
+  <app-landing></app-landing>
 </main>

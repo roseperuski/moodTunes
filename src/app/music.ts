@@ -7,6 +7,7 @@
     results?:Results [];
     trackmatches?:any;
     artist?: any;
+    
    }
    export interface Track {
     name: string;
