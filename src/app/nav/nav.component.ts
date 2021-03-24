@@ -12,6 +12,12 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
   closeMenu() {
-    this.menuOpen=false;
+    console.log("closeMenu activated")
+    if (this.menuOpen===false){
+      this.menuOpen=true;
+    }else{
+      this.menuOpen=false;
+    }
+    
   }
 }

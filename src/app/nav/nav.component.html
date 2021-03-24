@@ -13,13 +13,13 @@
     </ul>
 
         <div id="menuToggle">
-            <input type="checkbox" [(ngModel)]="menuOpen" />
+            <input type="checkbox" (click)="closeMenu()" />
           
             <span></span>
             <span></span>
             <span></span>
           
-            <ul id="menu">
+            <ul id="menu" *ngIf="menuOpen">
                 <!-- <li class="nav-link"><a routerLink="/login">Log in or Sign up</a></li>
                 <li class="nav-link"><a routerLink="/profile">My Profile</a></li>
                 <li class="nav-link"><a routerLink="/playlists">My Playlists</a></li> -->

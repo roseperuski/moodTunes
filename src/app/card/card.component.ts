@@ -11,7 +11,7 @@ import { MusicService } from '../music.service';
 })
 export class CardComponent implements OnInit {
   selectedSearch: string;
-  musicData: Music;
+  playlistShow: boolean = false;
 
   constructor(public musicService: MusicService) { }
   
@@ -78,5 +78,7 @@ export class CardComponent implements OnInit {
     }
    
   }
+
+  
 
 }
