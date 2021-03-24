@@ -101,3 +101,38 @@
     </mat-card-actions>
   </mat-card>
 </section>
+<!-- start Playlist -->
+<section aria-label="search results" *ngIf="playlist">
+  <mat-card
+    class="result-card"
+    *ngFor="let music of musicService.musicArray; let i = index"
+  >
+    <mat-card-header>
+      <h2 mat-card-title>{{ music.name }}</h2>
+      <!-- <mat-card-subtitle> {{music.artist}} </mat-card-subtitle> -->
+      <!-- <mat-card-subtitle> {{music.artist.name}} </mat-card-subtitle> -->
+    </mat-card-header>
+    <!-- <img mat-card-image src="" alt="" />
+    <mat-card-content></mat-card-content> -->
+    <mat-card-actions>
+      <!-- TO DO: this should be a link to the last FM site -->
+      <a
+        class="mat-stroked-button"
+        href="{{ music.url }}"
+        attr.aria-label="Details for {{ music.name }} by {{ music.name }}"
+        target="_blank"
+        >Details
+      </a>
+      <!-- To do when Id is added to the table -->
+      <button
+        mat-fab
+        attr.aria-label="Delete {{ music.name }} by {{
+          music.name
+        }} from playlist"
+        (click)="addPlaylist(music)"
+      >
+        <mat-icon class="material-icons md-24">Delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</section>

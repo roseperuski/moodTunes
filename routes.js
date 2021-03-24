@@ -1,56 +1,87 @@
-const { json } = require('body-parser');
-const express = require('express');
+const { json } = require("body-parser");
+const express = require("express");
 const tracks = express.Router();
 const pool = require("./connection");
 
 tracks.get("/", (req, res) => {
-
-    console.log('entering get tracks routes');
-    pool.query("SELECT * FROM playlist")
-    .then((results) => { // do this when we get the result
+  console.log("entering get tracks routes");
+  pool.query("SELECT * FROM playlist").then((results) => {
+    // do this when we get the result
     // make the DB data match the front end format
-   let rtnTracks = results.rows;
-   
-  if (!rtnTracks){
-    res.status(404).send('Empty search list!!');
-  }
-  else{
-    res.status(200).json(rtnTracks);
-  }
-  
-});
+    let rtnTracks = results.rows;
+
+    if (!rtnTracks) {
+      res.status(404).send("Empty search list!!");
+    } else {
+      res.status(200).json(rtnTracks);
+    }
+  });
 });
 
 // accept POST request at URI: /items
 
-// tracks.post("/", (req, res) => {
-//      let artist = req.body.artist;
-//      let name = req.body.name;
-//      let artistUrl= req.body.urlArtist;
-//      let detailUrl = req.body.urlDetail;
-//      console.log('req:',req.body);
-// pool
+tracks.post("/", (req, res) => {
+  let newTrack = req.body;
+  // let artist = req.body.artist;
+  // let name = req.body.name;
+  // let artistUrl = req.body.urlArtist;
+  // let trackUrl = req.body.urlTrack;
+  
+  console.log("req:", newTrack);
+  
+  pool.query('INSERT INTO playlist (artist_name, track_name, artist_url, track_url) VALUES ($1, $2, $3, $4) returning *;',
+  [newTrack.artist_name, newTrack.track_name, newTrack.artist_url, newTrack.track_url
+  ]).then((results) => {
+      res.status(201); // created
+      res.json(results.rows); // return the item we created
+  });
+});
+
+// 'INSERT INTO
+//   playlist (artist_name, track_name, artist_url, track_url)
+//     VALUES ($1, $2, $3,$4) returning *;',
+//       [newTrack.artist, newTrack.name, newTrack.artistUrl, newTrack.trackUrl]
+
+
+
+// // accept PUT request at URI:
+// tracks.put("/:id", (req, res) => {
+//   const idInp = (req.params.id);
+//   console.log("id:",idInp);
+
+//   let product = req.body.product;
+//   let price = req.body.price;
+//   let quantity= req.body.quantity;
+//   console.log('req:',req.body);
+//   //const newItem = req.body;
+//   //console.log('newItem:',newItem);
+//   pool
 // .query(
 //   `
-// INSERT INTO 
-//   playlist (artist_name, track_name, artist_url,track_url) 
-//     VALUES ($1, $2, $3,$4) returning *
+// update
+//     shopping_cart set product = $1, price = $2, quantity = $3
+//     where id = $4 returning *
+
 // `,
 //   [
-//     artist,
-//     name,
-//     artistUrl,
-//     detailURl
+//     product,
+//     price,
+//     quantity,
+//     idInp
 //   ]
 // )
 // .then((results) => {
 //   res.status(201); // created
 //   res.json(results.rows); // return the item we created
 // });
-   
-   
+// //console.log("PUT Results:",newItem);
+//   //removes 1 item from the array, starting at the index provided,
+//   // then adds newItem in its place
+//   //itemsList.splice(index,1,newItem);
+//   // res.json(itemsList);
+//   //res.status(200).send('PUT Successful');
+//   //res.json(itemsList);
 // });
-
 
 // // accept DELETE request at URI: /items
 // items.delete("/:id", (req, res) => {
@@ -61,21 +92,19 @@ tracks.get("/", (req, res) => {
 //   pool
 //   .query(
 //     `
-//   delete from 
-//       playlist where id = $1
+//   delete from
+//       shopping_cart where id = $1
 // `,
 //     [
 //       idDel
-//     ] 
+//     ]
 //   )
 //   .then((results) => {
 //     res.status(201); // created
 //     res.json(results); // return the item we created
 //   });
 
-
 // });
-
 
 //export module so it can be used in other files
 module.exports = tracks;

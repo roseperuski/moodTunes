@@ -1,31 +1,6 @@
 <app-nav></app-nav>
-<section>
-    <!-- mood by track working-->
-    <mat-card
-      
-      role="group"
-      aria-label="search results"
-      class="playlist-card"
-      *ngFor="let music of musicService.music.track; let i = index"
-    >
-      <mat-card-header>
-        <h2 mat-card-title>{{ music.name }}</h2>
-        <mat-card-subtitle> {{music.artist}} </mat-card-subtitle> 
-        <!-- <mat-card-subtitle> {{music.artist.name}} </mat-card-subtitle> -->
-      </mat-card-header>
-      <img mat-card-image src="" alt="" />
-      <mat-card-content></mat-card-content>
-      <mat-card-actions>
-        <!--  this should be a link from postgres Database -->
-        <a class="mat-stroked-button" href="{{music.url}}"  attr.aria-label="Details for {{ music.name }} by {{music.artist}}  ">Details </a>
-                  <button mat-fab attr.aria-label="Delete {{ music.name }} by {{music.artist}} to playlist" (click)="deletePlaylist(music)">
-                      <mat-icon class="material-icons md-24">delete</mat-icon>
-                    </button>
-      </mat-card-actions>
-    </mat-card>
-</section>
-  
-
+<p>Playlist !</p>
+<h1>Playlist</h1>
+<app-card [playlist]="'test'" ></app-card>
  
-
 

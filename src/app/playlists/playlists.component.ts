@@ -14,14 +14,14 @@ export class PlaylistsComponent implements OnInit {
   constructor(public musicService:MusicService) { }
 
   ngOnInit(): void {
-        this.musicService.getTracks(); 
+       // this.musicService.getTracks(); 
   }
   
 
   deletePlaylist() {
     // fire an event to the parent,
     // telling it which villager was deleted
-    this.musicService.deletePlaylist(this.music.id);
+    //this.musicService.deletePlaylist(this.music.id);
   }
 
 //   selectedPlaylist(playlistEntry: Music) {

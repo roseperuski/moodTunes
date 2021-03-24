@@ -20,6 +20,7 @@ section {
 button:focus {
   outline: 1px solid black;
 }
+.material-icons.md-24 { font-size: 24px;color:black}
 
 @media screen and (min-width: 768px) {
   /* .result-card{

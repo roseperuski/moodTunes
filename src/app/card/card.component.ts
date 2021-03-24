@@ -10,9 +10,10 @@ import { MusicService } from '../music.service';
 })
 export class CardComponent implements OnInit {
   selectedSearch: string;
+  @Input() playlist : string;
 
   constructor(public musicService: MusicService) { }
-  
+   
   moodTrack: boolean = false;
   showTrack: boolean = false;
   moodArtist: boolean = false;
@@ -21,9 +22,7 @@ export class CardComponent implements OnInit {
     this.selectedSearch = this.musicService.getSelectedSearch();
     this.setSearchShow(this.selectedSearch);
   }
- 
 
-   
   setSearchShow(search : string){
     search = this.selectedSearch;
     if (search === "tag.gettoptracks"){
@@ -37,6 +36,14 @@ export class CardComponent implements OnInit {
     }
 
     console.log ("tag:", this.selectedSearch)
+  }
+  
+  addPlaylist(music:Music){
+    this.musicService.addPlaylist(music);
+  }
+
+  deletePlaylist(id:number){
+    // this.musicService.deletePlaylist(id:number);
   }
 
 }
