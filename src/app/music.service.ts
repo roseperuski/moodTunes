@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import {Music} from './music'
+import {Music, Playlist} from './music'
 import {Track} from './track'
 
 interface Response {
@@ -98,7 +98,7 @@ export class MusicService {
           (response: Response) => {
             console.log(response);
             this.music = response.topartists;
-            console.log("topartist result:", this.music);
+            console.log("topartist result:", this.music.artist);
           },
           (error) => {
             console.error(error);
@@ -152,7 +152,12 @@ export class MusicService {
       );
   }
 
-  
+  addPlaylist(playlist: Playlist) {
+    this.http.post(this.apiUrl, playlist).subscribe((data) => {
+      this.getTracks();
+    });
+  }
+
   setSelectedSearch(tag: string){
     this.selectedSearch=tag;
     console.log(this.selectedSearch);

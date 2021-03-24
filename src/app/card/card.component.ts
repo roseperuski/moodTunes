@@ -3,6 +3,7 @@ import { Music } from '../music';
 import { MusicService } from '../music.service';
 
 
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -10,6 +11,7 @@ import { MusicService } from '../music.service';
 })
 export class CardComponent implements OnInit {
   selectedSearch: string;
+  musicData: Music;
 
   constructor(public musicService: MusicService) { }
   
@@ -37,6 +39,44 @@ export class CardComponent implements OnInit {
     }
 
     console.log ("tag:", this.selectedSearch)
+  }
+
+  addPlaylist(music){
+    console.log("add to playlist: ", music);
+    if (this.selectedSearch==="tag.gettoptracks"){
+      const playList = {
+        artist_name: music.name,
+        track_name: music.artist.name,
+        artist_url: music.artist.url,
+        track_url: music.url
+      }
+      this.musicService.addPlaylist(playList);
+    } else if (this.selectedSearch === "tag.gettopartists") {
+      const playList = {
+        artist_name: music.name,
+        track_name: " ",
+        artist_url: music.url,
+        track_url: " "
+      }
+      this.musicService.addPlaylist(playList);
+    } else if (this.selectedSearch==="track.search"){
+      const playList = {
+        artist_name: music.name,
+        track_name: music.artist,
+        artist_url: " ",
+        track_url: music.url
+      }
+      this.musicService.addPlaylist(playList);
+    } else {
+      const playList = {
+        artist_name: music.name,
+        track_name: music.artist.name,
+        artist_url: music.artist.url,
+        track_url: music.url
+      }
+      this.musicService.addPlaylist(playList);
+    }
+   
   }
 
 }
