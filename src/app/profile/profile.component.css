@@ -1,0 +1,281 @@
+h1 {
+    font-size: 2em;
+    padding: 10px;
+    text-align: center;
+    /* color: rgb(191, 111, 218); */
+    color: #000;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-shadow: 4px 4px #76b852;
+    /* font-family: "Roboto", sans-serif; */
+  }
+  
+  .form-box {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: rgb(191, 111, 218);
+    background-size: cover;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  
+  #signup {
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+  }
+  
+  #login {
+      font-size: 20px;
+      font-weight: bold;
+  }
+  
+  .form-top {
+    padding: 3em;
+  }
+  
+  input[type="text"],
+  input[type="display"],
+  input[type="password"] {
+    font-size: 0.9em;
+    color: #fff;
+    font-weight: 500;
+    width: 94.5%;
+    display: block;
+    border: none;
+    padding: 0.8em;
+    border: solid 1px rgba(255, 255, 255, 0.37);
+    -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%);
+    background-position: -800px 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  input.display,
+  input.text {
+    margin: 2em 0;
+  }
+  
+  .text:focus,
+  .text:valid {
+    box-shadow: none;
+    outline: none;
+    background-position: 0 0;
+  }
+  
+  .text:focus::-webkit-input-placeholder,
+  .text:valid::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+    -webkit-transform: translateY(-30px);
+    -moz-transform: translateY(-30px);
+    -o-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+    visibility: visible !important;
+  }
+  
+  ::-webkit-input-placeholder {
+    color: #fff;
+    font-weight: 100;
+  }
+  
+  /* :-moz-placeholder { */
+    /* Firefox 18- */
+    /* color: #fff; */
+  /* } */
+  
+  /* ::-moz-placeholder { */
+    /* Firefox 19+ */
+    /* color: #fff; */
+  /* } */
+  
+  /* :-ms-input-placeholder { */
+    /* color: #fff; */
+  /* } */
+  
+  input[type="submit"] {
+    font-size: 0.9em;
+    color: #fff;
+    background: #76b852;
+    outline: none;
+    border: 1px solid #76b852;
+    cursor: pointer;
+    padding: 0.9em;
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 2em 0;
+    letter-spacing: 4px;
+  }
+  
+  input[type="submit"]:hover {
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+    background: #8dc26f;
+  }
+  
+  .form-top p {
+    font-size: 1em;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+  
+  .form-top p a {
+    color: #fff;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    transition: 0.5s all;
+    font-weight: 400;
+  }
+  
+  .form-top p a:hover {
+    color: #76b852;
+  }
+  
+  /*-- checkbox --*/
+  .terms label {
+    font-size: 0.9em;
+    color: #fff;
+    font-weight: 200;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  input.checkbox {
+    background: #8dc26f;
+    cursor: pointer;
+    width: 1.2em;
+    height: 1.2em;
+  }
+  
+  input.checkbox:before {
+    content: "";
+    position: absolute;
+    width: 1.2em;
+    height: 1.2em;
+    background: inherit;
+    cursor: pointer;
+  }
+  
+  input.checkbox:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 1;
+    width: 1.2em;
+    height: 1.2em;
+    border: 1px solid #fff;
+    -webkit-transition: 0.4s ease-in-out;
+    -moz-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+  }
+  
+  input.checkbox:checked:after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    height: 0.5rem;
+    border-color: #fff;
+    border-top-color: transparent;
+    border-right-color: transparent;
+  }
+  
+  .active-checkbox input.checkbox:checked:after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    height: 0.5rem;
+    border-color: transparent;
+    border-right-color: transparent;
+    animation: 0.4s rippling 0.4s ease;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes rippling {
+    50% {
+      border-left-color: #fff;
+    }
+  
+    100% {
+      border-bottom-color: #fff;
+      border-left-color: #fff;
+    }
+  }
+  
+  /* Tablet View */
+  @media screen and (min-width: 480px) {
+  
+    h1 {
+      font-size: 3em;
+      text-align: center;
+      /* color: rgb(191, 111, 218); */
+      color: #000;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-shadow: 4px 4px #76b852;
+      /* font-family: "Roboto", sans-serif; */
+    }
+    
+    .form-box {
+      width: 60%;
+      margin: 2.5em auto;
+      background: rgb(191, 111, 218);
+      background-size: cover;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+    }
+  }
+  
+  /* Desktop View */
+  @media screen and (min-width: 768px) {
+  
+    h1 {
+      font-size: 3em;
+      text-align: center;
+      /* color: rgb(191, 111, 218); */
+      color: #000;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-shadow: 4px 4px #76b852;
+      /* font-family: "Roboto", sans-serif; */
+    }
+    
+    .form-box {
+      width: 35%;
+      margin: 3em auto;
+      background: rgb(191, 111, 218);
+      background-size: cover;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+    }
+  }
