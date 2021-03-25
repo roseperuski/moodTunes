@@ -167,7 +167,7 @@ export class MusicService {
   }
   
   deletePlaylist(id: number) {
-    this.http.delete(this.url + id).subscribe((data) => {
+    this.http.delete(this.apiUrl + "/"+id).subscribe((data) => {
       this.getTracks();
     });
   }
