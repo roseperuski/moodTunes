@@ -10,11 +10,14 @@ import { MusicService } from '../music.service';
 })
 export class PlaylistsComponent implements OnInit {
    @Input() public music: Music;
+   //musicArray=[];
+
 
   constructor(public musicService:MusicService) { }
 
   ngOnInit(): void {
         this.musicService.getTracks(); 
+        //this.musicArray = this.musicService.musicArray;
         }
   
 

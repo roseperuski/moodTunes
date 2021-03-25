@@ -1,15 +1,39 @@
-<!-- h1>My Playlists</h1>
-<p>playlists works!</p>
+<main>
 
-<p>playlists works!</p>
-<div id="playListings" *ngFor="let playlistEntry of musicService.playlist; let i= index;"> 
-    <h3>{{playlistEntry.title}}</h3>
+<h1>My Playlists</h1>
 
-    <div *ngIf="playlistEntry.isShowing" class="viewOverview">{{playlistEntry.artist_display_name}}</div>
+<!-- 
+<div  *ngFor="let music of musicService.musicArray; let i= index;"> 
+    <h2>Artist Name: {{music.artist_name}}</h2>
+    <p>Track Name: {{music.track_name}}</p>
+    <p>Artist URL: {{music.artist_url}}</p>
+    <p>Track URL: {{music.track_url}}</p>
     
-    <button class="showOveriew" (click)="selectedMusic(playlistEntry)">Movie Info</button>
-    <button class="removefromPlayList" (click) = "removeFromPlayList(i)" title="Remove from Play list">X</button>
-</div>< -->
+    <button class="removefromPlayList" (click) = "removeFromPlayList(i)" title="Remove from Play list" attr.aria-label="Remove  {{music.track_name}} by {{music.artist_name}} from playlist">Remove</button>
+</div> -->
+
+<table>
+    
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Track Name</th>
+                <th>Artist Name</th>
+                <th>URL</th>
+              </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let music of musicService.musicArray; let i= index;">  
+              <td>{{i+1}}</td>         
+            <td>{{music.artist_name}}</td>
+            <td>{{music.track_name}}</td>
+            <td>{{music.artist_url}}</td>
+            <td><button class="removefromPlayList" (click) = "removeFromPlayList(i)" title="Remove from Play list" attr.aria-label="Remove  {{music.track_name}} by {{music.artist_name}} from playlist">Remove</button></td>
+          </tr>
+        </tbody>
+      
+  </table>
+</main>
 
 
 
