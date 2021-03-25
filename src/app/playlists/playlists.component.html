@@ -23,9 +23,9 @@
       <tbody>
         <tr *ngFor="let music of musicService.musicArray; let i = index">
           <td>{{ i + 1 }}</td>
-          <td>{{ music.artist_name }}</td>
+          <td><a href="{{ music.artist_url }}" target= "_blank" attr.aria-label="Details for {{ music.artist_name }}">{{ music.artist_name }}</a></td>
           <td>{{ music.track_name }}</td>
-          <td>{{ music.artist_url }}</td>
+          <!-- <td>{{ music.artist_url }}</td> -->
           <td>
             <button
               class="removefromPlayList"
