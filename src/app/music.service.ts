@@ -157,6 +157,12 @@ export class MusicService {
       this.getTracks();
     });
   }
+  
+  deletePlaylist(id: number) {
+    this.http.delete(this.url + id).subscribe((data) => {
+      this.getTracks();
+    });
+  }
 
   setSelectedSearch(tag: string){
     this.selectedSearch=tag;

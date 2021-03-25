@@ -21,11 +21,10 @@ export class PlaylistsComponent implements OnInit {
         }
   
 
-//   removeFromPlayList(deleteIndex: number) {
-//     console.log(deleteIndex);
-//     this.musicService.musiclist.splice(deleteIndex, 1);
-//     console.log(this.musicService);
-//   }
+  removeFromPlayList(deleteIndex: number) {
+    console.log(deleteIndex);
+    this.ngOnInit();
+  }
 
 //   selectedMusic(playlistEntry: Music) {
 //     console.log('musicArtist:', playlistEntry.artist_display_name);

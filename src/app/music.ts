@@ -45,10 +45,11 @@
       }
 
       export interface Playlist{
-        artist_name: string;
+        artist_name?: string;
         track_name?: string;
-        artist_url: string;
+        artist_url?: string;
         track_url?: string;
+        id?: number;
       }
 
 
