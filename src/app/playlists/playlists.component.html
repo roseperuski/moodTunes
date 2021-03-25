@@ -1,8 +1,7 @@
 <main>
+  <h1>My Playlists</h1>
 
-<h1>My Playlists</h1>
-
-<!-- 
+  <!-- 
 <div  *ngFor="let music of musicService.musicArray; let i= index;"> 
     <h2>Artist Name: {{music.artist_name}}</h2>
     <p>Track Name: {{music.track_name}}</p>
@@ -11,30 +10,36 @@
     
     <button class="removefromPlayList" (click) = "removeFromPlayList(i)" title="Remove from Play list" attr.aria-label="Remove  {{music.track_name}} by {{music.artist_name}} from playlist">Remove</button>
 </div> -->
-
-<table>
-    
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>Track Name</th>
-                <th>Artist Name</th>
-                <th>URL</th>
-              </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let music of musicService.musicArray; let i= index;">  
-              <td>{{i+1}}</td>         
-            <td>{{music.artist_name}}</td>
-            <td>{{music.track_name}}</td>
-            <td>{{music.artist_url}}</td>
-            <td><button class="removefromPlayList" (click) = "removeFromPlayList(i)" title="Remove from Play list" attr.aria-label="Remove  {{music.track_name}} by {{music.artist_name}} from playlist">Remove</button></td>
-          </tr>
-        </tbody>
-      
-  </table>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Track Name</th>
+          <th>Artist Name</th>
+          <th>URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let music of musicService.musicArray; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ music.artist_name }}</td>
+          <td>{{ music.track_name }}</td>
+          <td>{{ music.artist_url }}</td>
+          <td>
+            <button
+              class="removefromPlayList"
+              (click)="removeFromPlayList(i)"
+              title="Remove from Play list"
+              attr.aria-label="Remove  {{ music.track_name }} by {{
+                music.artist_name
+              }} from playlist"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </main>
-
-
-
-

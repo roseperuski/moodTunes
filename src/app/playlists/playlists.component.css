@@ -1,7 +1,15 @@
 main{
     color: white;
+    
+}
+div{
+    display:flex;
+    justify-content: center;
 }
 table{
     background-color: white;
     color: black;
 }
+th, td {
+    border-bottom: 1px solid #ddd;
+  }
