@@ -119,12 +119,6 @@ export class MusicService {
     // );
   }
 
-  addPlaylist(musicArray: any) {
-    this.http.post(this.url, musicArray).subscribe((data) => {
-      this.getTracks();
-    });
-  }
-
   deletePlaylist(id: number) {
     this.http.delete(this.url + id).subscribe((data) => {
       this.getTracks();
