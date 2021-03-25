@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
-import {Music, Playlist} from './music'
-import {Track} from './track'
+import { HttpClient } from '@angular/common/http'
+import { Music, Playlist } from './music'
+import { Track } from './track'
 
 interface Response {
   toptracks?: Music;
@@ -11,18 +11,6 @@ interface Response {
   //page: number;
 }
 
-// interface TrackResponse {
-//   songResults: Track[];
-// }
-
-
-//interface Music{
-// type?:string;
- ///name?:string;
- //tag_en:string;
-//}
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -30,8 +18,11 @@ export class MusicService {
   apiKey = "b88d365cdf804155ac40618e402f7ce5";
   //url = "http://localhost:8080/api/V6";
   url="https://ws.audioscrobbler.com/2.0/";
-  music: Music;
+  urlDiscogs="http://localhost:3000/proxy";
+  music: any; // Music;
   musicArray: Music [];
+
+  public image: string;
 
   public apiUrl: string = "http://localhost:3000/api";
   //public apiUrl: string = "/api";
@@ -40,11 +31,16 @@ export class MusicService {
   constructor(private http: HttpClient) { }
   
   getMusicLanding(){
-    const requestUrl =  this.url + "?method=chart.gettoptracks&api_key=" + this.apiKey +"&format=json"
-    this.http.get(requestUrl).subscribe(
+    const requestUrl =  this.url + "?method=chart.gettoptracks&api_key=" + this.apiKey +"&format=json&limit=10"
+      this.http.get(requestUrl).subscribe(
       (response: Response) => {
         console.log(response);
         this.music = response.tracks;
+        console.log(this.music);
+        
+        for (let item of this.music.track) {
+          this.getImage(item);
+        }
       },
       (error) => {
         console.error(error);
@@ -54,23 +50,30 @@ export class MusicService {
   getMusic(method?: string, searchString?: string){
     let requestUrl;
     if (method === "artist.gettoptracks"){
-      requestUrl = this.url +"?method="+ method +   "&artist=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
+      requestUrl = this.url +"?method="+ method +   "&artist=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json&limit=10";
       this.http.get(requestUrl).subscribe(
         (response: Response) => {
           console.log(response);
           this.music = response.toptracks;
+
+          for (let item of this.music.track) {
+            this.getImage(item);
+          }
         },
         (error) => {
           console.error(error);
         }
       );
     } else if (method === "track.search" ) {
-      requestUrl = this.url +"?method="+ method + "&track=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
+      requestUrl = this.url +"?method="+ method + "&track=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json&limit=10";
       this.http.get(requestUrl).subscribe(
         (response: Response) => {
           console.log(response);
           this.music = response.results;
-          console.log(this.music.trackmatches);
+          for (let item of this.music.track) {
+            this.getImage(item);
+          }
+           console.log(this.music.trackmatches);
         },
         (error) => {
           console.error(error);
@@ -78,7 +81,7 @@ export class MusicService {
       );
     } else {
       requestUrl =
-      this.url+"?method=" + method + "&tag=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json";
+      this.url+"?method=" + method + "&tag=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json&limit=10";
       console.log('requestURL:',requestUrl);
          
       if (method === "tag.gettoptracks"){
@@ -86,7 +89,10 @@ export class MusicService {
           (response: Response) => {
             console.log(response);
             this.music = response.tracks;
-            console.log("tracks result:", this.music);
+            for (let item of this.music.track) {
+              this.getImage(item);
+            }
+                console.log("tracks result:", this.music);
           },
           (error) => {
             console.error(error);
@@ -99,7 +105,10 @@ export class MusicService {
             console.log(response);
             this.music = response.topartists;
             console.log("topartist result:", this.music.artist);
-          },
+            for (let item of this.music.track) {
+              this.getImage(item);
+            }
+              },
           (error) => {
             console.error(error);
           }
@@ -122,8 +131,8 @@ export class MusicService {
   getTracks(): void {
     
     this.musicArray = [];
-    // Make an API request to our Animal Crossings API
-    // Set the response of that request to our this.villagers array
+    // Make an API request to our LastFM API
+    // Set the response of that request to our this.music array
     this.http
       .get(this.apiUrl) // calling the API
       .subscribe(
@@ -134,12 +143,11 @@ export class MusicService {
           // convert object to an array
           for (const key in data) {
             if (Object.prototype.hasOwnProperty.call(data, key)) {
-              const playList = data[key]; // individual villager
+              const playList = data[key]; // individual track
 
               // converting the format of the API to the format
-              // that we are expecting in our Villager interface
-              // villager.name = villager.name["name-USen"];
-
+              // that we are expecting in our Music interface
+              
               this.musicArray.push(playList);
               console.log(this.musicArray);
             }
@@ -173,9 +181,15 @@ export class MusicService {
     console.log("Selected search is " + this.selectedSearch);
     return this.selectedSearch;
   }
-  // getUrlWithAPIKey() {
-    //return `${this.url}?api_key=${this.apiKey}&language=en-US`;
-    //return `${this.url}?api_key=${this.apiKey}&language=en-US`;
-  //   return `${this.url}?method=${method}?app_key=${this.apiKey}&format=json`;
-  // }
+  
+  getImage(music: Music) {
+    // console.log("Artist is " + this.)
+  const urlDiscogs = this.urlDiscogs + "/database/search?q=" + music.artist.name;
+    this.http.get(urlDiscogs).subscribe((response: any) => {
+      console.log(response);
+      music.image = response.results[0].thumb;
+    }
+    )
+  }
+
 }

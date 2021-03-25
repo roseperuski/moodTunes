@@ -7,7 +7,7 @@
     results?:Results [];
     trackmatches?:any;
     artist?: any;
-    
+    image?: string;
    }
    
    export interface Track {
@@ -15,6 +15,7 @@
     url: string;
     artist: string[];
     mbid: string;
+    image?: string;
   }
   export interface Moodtracks {
     artist?:{
