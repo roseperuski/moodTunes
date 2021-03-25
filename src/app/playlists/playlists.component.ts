@@ -23,7 +23,8 @@ export class PlaylistsComponent implements OnInit {
 
   removeFromPlayList(deleteIndex: number) {
     console.log(deleteIndex);
-    this.ngOnInit();
+    this.musicService.deletePlaylist(deleteIndex);
+   // this.ngOnInit();
   }
 
 //   selectedMusic(playlistEntry: Music) {

@@ -42,6 +42,7 @@
 <section aria-label="search results" *ngIf="showTrack">
   <mat-card
     class="result-card"
+    style="text-align: center"
     *ngFor="let music of musicService.music.trackmatches.track; let i = index"
   >
     <mat-card-header>
@@ -72,6 +73,7 @@
 <section aria-label="search results" *ngIf="moodArtist">
   <mat-card
     class="result-card"
+    style="text-align: center"
     *ngFor="let music of musicService.music.artist; let i = index"
   >
     <mat-card-header>
