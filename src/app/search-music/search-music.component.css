@@ -1,6 +1,13 @@
 /* Mobile View */
+main{
+    color: white;
+    padding: 1rem;
+}
 h1 {
-    font-size: medium;
+    text-align: center;
+}
+div{
+    display: flex;
 }
 
 form {
@@ -8,6 +15,7 @@ form {
     /* flex-direction: column; */
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     /* padding: 2rem; */
     /* box-sizing: border-box; */
 }
@@ -15,16 +23,17 @@ form {
 label {
     padding-right: 5px;
     font-size: 15px;
+    color: white;
 }
 
 select{
     /* display: inline; */
     width: 65%;
+    margin-right: 25px;
 }
 
 input {
-    width: 100px;
-    margin: 0;
+    margin-top: 5px;
 }
 
 button{
@@ -60,18 +69,19 @@ button{
     }
 
     div{
-        display: inline-flex;
+        display: flex;
         margin: 2rem;
+        justify-content: center;
        
     }
 }
 
 /* Desktop View */
 @media screen and (min-width: 768px) {
-    .full-width-img {
+    /* .full-width-img {
     margin: auto;
     width: 90%;
-    }
+    } */
 
     button{
         width: 100px;
@@ -94,8 +104,9 @@ button{
     }
 
     div{
-        display: inline-flex;
+        display: flex;
         margin: 2rem;
+        justify-content: center;
        
     }
 }

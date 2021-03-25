@@ -2,10 +2,10 @@
 
 <section *ngIf="moodTrack" aria-label="search results">
   <!-- mood by track and artist search complete-->
-  
+
   <mat-card
     class="result-card"
-    style="text-align: center;"
+    style="text-align: center"
     *ngFor="let music of musicService.music.track; let i = index"
   >
     <mat-card-header>
@@ -48,14 +48,15 @@
       <h2 mat-card-title>{{ music.name }}</h2>
       <mat-card-subtitle> {{ music.artist }} </mat-card-subtitle>
     </mat-card-header>
-   
+
     <mat-card-actions>
       <!-- TO DO: this should be a link to the last FM site -->
       <a
         class="mat-stroked-button"
         href="{{ music.url }}"
         attr.aria-label="Details for {{ music.name }} by {{ music.artist }}  "
-        target="_blank">Details
+        target="_blank"
+        >Details
       </a>
       <button
         mat-fab
@@ -85,15 +86,13 @@
       <a
         class="mat-stroked-button"
         href="{{ music.url }}"
-        attr.aria-label="Details for {{ music.name }} by {{ music.name }}"
+        attr.aria-label="Details for {{ music.name }}"
         target="_blank"
         >Details
       </a>
       <button
         mat-fab
-        attr.aria-label="Add {{ music.name }} by {{
-          music.artist.name
-        }} to playlist"
+        attr.aria-label="Add {{ music.name }} to playlist"
         (click)="addPlaylist(music)"
       >
         <mat-icon>favorite</mat-icon>
@@ -101,11 +100,11 @@
     </mat-card-actions>
   </mat-card>
 </section>
-<!-- start Playlist -->
-<section aria-label="search results" *ngIf="playlist">
+
+<section *ngIf="playlistShow">
   <mat-card
     class="result-card"
-    *ngFor="let music of musicService.musicArray; let i = index"
+    *ngFor="let music of musicService.music.artist; let i = index"
   >
     <mat-card-header>
       <h2 mat-card-title>{{ music.name }}</h2>
@@ -119,19 +118,16 @@
       <a
         class="mat-stroked-button"
         href="{{ music.url }}"
-        attr.aria-label="Details for {{ music.name }} by {{ music.name }}"
+        attr.aria-label="Details for {{ music.name }}"
         target="_blank"
         >Details
       </a>
-      <!-- To do when Id is added to the table -->
       <button
         mat-fab
-        attr.aria-label="Delete {{ music.name }} by {{
-          music.name
-        }} from playlist"
+        attr.aria-label="Add {{ music.name }} to playlist"
         (click)="addPlaylist(music)"
       >
-        <mat-icon class="material-icons md-24">Delete</mat-icon>
+        <mat-icon>favorite</mat-icon>
       </button>
     </mat-card-actions>
   </mat-card>

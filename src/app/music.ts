@@ -7,7 +7,9 @@
     results?:Results [];
     trackmatches?:any;
     artist?: any;
+    
    }
+   
    export interface Track {
     name: string;
     url: string;
@@ -40,6 +42,13 @@
         topartists: {
           artist : string[];
         }
+      }
+
+      export interface Playlist{
+        artist_name: string;
+        track_name?: string;
+        artist_url: string;
+        track_url?: string;
       }
 
 

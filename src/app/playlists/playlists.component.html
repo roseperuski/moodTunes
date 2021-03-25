@@ -3,4 +3,19 @@
 <h1>Playlist</h1>
 <app-card [playlist]="'test'" ></app-card>
  
+<!-- h1>My Playlists</h1>
+<p>playlists works!</p>
+
+<p>playlists works!</p>
+<div id="playListings" *ngFor="let playlistEntry of musicService.playlist; let i= index;"> 
+    <h3>{{playlistEntry.title}}</h3>
+
+    <div *ngIf="playlistEntry.isShowing" class="viewOverview">{{playlistEntry.artist_display_name}}</div>
+    
+    <button class="showOveriew" (click)="selectedMusic(playlistEntry)">Movie Info</button>
+    <button class="removefromPlayList" (click) = "removeFromPlayList(i)" title="Remove from Play list">X</button>
+</div>< -->
+
+
+
 
