@@ -32,7 +32,7 @@ export class MusicService {
   constructor(private http: HttpClient) { }
   
   getMusicLanding(){
-    const requestUrl =  this.url + "?method=chart.gettoptracks&api_key=" + this.apiKey +"&format=json&limit=10"
+    const requestUrl =  this.url + "?method=chart.gettoptracks&api_key=" + this.apiKey +"&format=json&limit=6"
       this.http.get(requestUrl).subscribe(
       (response: Response) => {
         console.log(response);
@@ -51,7 +51,7 @@ export class MusicService {
   getMusic(method?: string, searchString?: string){
     let requestUrl;
     if (method === "artist.gettoptracks"){
-      requestUrl = this.url +"?method="+ method +   "&artist=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json&limit=10";
+      requestUrl = this.url +"?method="+ method +   "&artist=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json&limit=6";
       this.http.get(requestUrl).subscribe(
         (response: Response) => {
           console.log(response);
@@ -66,7 +66,7 @@ export class MusicService {
         }
       );
     } else if (method === "track.search" ) {
-      requestUrl = this.url +"?method="+ method + "&track=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json&limit=10";
+      requestUrl = this.url +"?method="+ method + "&track=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json&limit=6";
       this.http.get(requestUrl).subscribe(
         (response: Response) => {
           console.log(response);
@@ -82,7 +82,7 @@ export class MusicService {
       );
     } else {
       requestUrl =
-      this.url+"?method=" + method + "&tag=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json&limit=10";
+      this.url+"?method=" + method + "&tag=" + searchString + "&api_key=b88d365cdf804155ac40618e402f7ce5&format=json&limit=6";
       console.log('requestURL:',requestUrl);
          
       if (method === "tag.gettoptracks"){

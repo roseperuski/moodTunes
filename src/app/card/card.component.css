@@ -17,6 +17,11 @@ section {
   margin: 5px;
 }
 
+img {
+  width: 200px;
+  height: 200px;
+}
+
 button:focus {
   outline: 1px solid black;
 }
