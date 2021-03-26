@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Music, Playlist } from './music'
 import { Track } from './track'
+import { TagPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
 
 interface Response {
   toptracks?: Music;
@@ -103,9 +104,9 @@ export class MusicService {
         this.http.get(requestUrl).subscribe(
           (response: Response) => {
             console.log(response);
-            this.music = response.topartists;
+            this.music = response.topartists.artist;
             console.log("topartist result:", this.music.artist);
-            for (let item of this.music.track) {
+            for (let item of this.music) {
               this.getImage(item);
             }
               },
@@ -183,23 +184,34 @@ export class MusicService {
   }
   
   getImage(music: Music) {
-  const urlDiscogs1 = this.urlDiscogs + "/database/search?q=" + music.artist.name;
-  const urlDiscogs2 = this.urlDiscogs + "/database/search?q=" + music.artist;
+    let name;
+    if (music.name) {
+      name = music.name; 
+    } else {
+      name = music.artist.name;
+    }
+  const urlDiscogs1 = this.urlDiscogs + "/database/search?q=" + name;
+  const urlDiscogs2 = this.urlDiscogs + "/database/search?q=" + name;
   console.log(music.artist);
   
+  console.log("this.selectedSearch", this.selectedSearch);
+
   if (this.selectedSearch === "tag.gettoptracks" || this.selectedSearch === "artist.gettoptracks" || this.selectedSearch === "") {
     this.http.get(urlDiscogs1).subscribe((response: any) => {
+      console.log("if tag.gettoptracks, artist.gettoptracks, landing");
       console.log(response);
       music.image = response.results[0].thumb;
       console.log(music.image);
   })} else if (this.selectedSearch === "tag.gettopartists") {
     this.http.get(urlDiscogs2).subscribe((response: any) => {
+      console.log("else if tag.gettopartists");
       console.log(response);
       music.image = response.results[0].thumb;
       console.log(music.artist);
       console.log(music.image);
   })} else { 
     this.http.get(urlDiscogs2).subscribe((response: any) => {
+      console.log("else track.search");
     console.log(response);
     music.image = response.results[0].thumb;
     console.log(music.artist);

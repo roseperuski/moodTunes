@@ -75,7 +75,7 @@
   <mat-card
     class="result-card"
     style="text-align: center"
-    *ngFor="let music of musicService.music.artist; let i = index"
+    *ngFor="let music of musicService.music; let i = index"
   >
     <mat-card-header>
       <h2 mat-card-title>{{ music.name }}</h2>

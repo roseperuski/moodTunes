@@ -8,6 +8,7 @@
     trackmatches?:any;
     artist?: any;
     image?: string;
+    name?: string;
    }
    
    export interface Track {
