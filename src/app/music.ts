@@ -49,7 +49,6 @@
         track_name?: string;
         artist_url: string;
         track_url?: string;
-        id?:number;
       }
 
 
