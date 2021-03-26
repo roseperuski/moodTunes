@@ -70,7 +70,7 @@ export class MusicService {
         (response: Response) => {
           console.log(response);
           this.music = response.results;
-          for (let item of this.music.track) {
+          for (let item of this.music.trackmatches.track) {
             this.getImage(item);
           }
            console.log(this.music.trackmatches);
@@ -183,13 +183,26 @@ export class MusicService {
   }
   
   getImage(music: Music) {
-    // console.log("Artist is " + this.)
-  const urlDiscogs = this.urlDiscogs + "/database/search?q=" + music.artist.name;
-    this.http.get(urlDiscogs).subscribe((response: any) => {
+  const urlDiscogs1 = this.urlDiscogs + "/database/search?q=" + music.artist.name;
+  const urlDiscogs2 = this.urlDiscogs + "/database/search?q=" + music.artist;
+  console.log(music.artist);
+  
+  if (this.selectedSearch === "tag.gettoptracks" || this.selectedSearch === "artist.gettoptracks" || this.selectedSearch === "") {
+    this.http.get(urlDiscogs1).subscribe((response: any) => {
       console.log(response);
       music.image = response.results[0].thumb;
-    }
-    )
-  }
-
+      console.log(music.image);
+  })} else if (this.selectedSearch === "tag.gettopartists") {
+    this.http.get(urlDiscogs2).subscribe((response: any) => {
+      console.log(response);
+      music.image = response.results[0].thumb;
+      console.log(music.artist);
+      console.log(music.image);
+  })} else { 
+    this.http.get(urlDiscogs2).subscribe((response: any) => {
+    console.log(response);
+    music.image = response.results[0].thumb;
+    console.log(music.artist);
+    console.log(music.image);
+  })}}
 }
